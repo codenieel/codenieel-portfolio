@@ -118,13 +118,19 @@ export const projects: Project[] = [
   },
 ];
 
+export type ExperienceBullet = {
+  text: string;
+  platform?: "web" | "mobile" | "both";
+};
+
 export type Experience = {
   role: string;
   company: string;
   location: string;
   period: string;
   current?: boolean;
-  bullets: string[];
+  parallel?: boolean;
+  bullets: (string | ExperienceBullet)[];
 };
 
 export const experiences: Experience[] = [
@@ -190,6 +196,33 @@ export const experiences: Experience[] = [
       "Developed branding assets and maintained consistency across all company materials",
       "Collaborated with marketing team to conceptualize and execute creative campaigns",
       "Edited and enhanced images and videos aligned with brand aesthetics",
+    ],
+  },
+];
+
+export const freelanceProjects: Experience[] = [
+  {
+    role: "Freelance Full-Stack Developer",
+    company: "Tokkatok Platform",
+    location: "Remote · Philippines",
+    period: "Jan 2026 – Present",
+    current: true,
+    bullets: [
+      { text: "Built the Tokkatok web marketplace — a full-stack real estate platform for the Philippines with role-based portals (admin, agent, owner, customer), subscription tiers, and an AdminLTE admin panel", platform: "web" },
+      { text: "Integrated AsiaPay and Xendit payment gateways, AWS S3 for media management, and a booking system with availability calendars", platform: "web" },
+      { text: "Developed Tokkatok Customer App — a cross-platform React Native (Expo) app for browsing, saving, and booking properties with Firebase push notifications and real-time availability", platform: "mobile" },
+      { text: "Developed Tokkatok Owner App — a React Native app for staycation owners to manage listings, track bookings, sync calendars, upload gallery images, and message guests", platform: "mobile" },
+    ],
+  },
+  {
+    role: "Freelance Full-Stack Developer",
+    company: "Beauty Buffet Holistica (BBH)",
+    location: "Remote · Philippines",
+    period: "Dec 2025 – Apr 2026",
+    bullets: [
+      { text: "Built the BBH storefront — a multi-variant e-commerce web platform with product browsing, cart, and checkout", platform: "web" },
+      { text: "Developed a custom admin panel for product, order, and content management with multiple homepage design variations", platform: "web" },
+      { text: "Built on CodeIgniter and Bootstrap with jQuery-driven AJAX interactions throughout", platform: "web" },
     ],
   },
 ];
