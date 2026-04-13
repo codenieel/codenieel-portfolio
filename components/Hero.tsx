@@ -19,9 +19,9 @@ const ROLES = [
 ];
 
 const STATS = [
-  { icon: Globe, value: "1", label: "Year Freelancing" },
-  { icon: Code2, value: "5+", label: "Production Projects" },
-  { icon: Smartphone, value: "2", label: "Mobile Apps Shipped" },
+  { icon: Globe,      value: "3+", label: "Years Experience" },
+  { icon: Code2,      value: "5+", label: "Production Projects" },
+  { icon: Smartphone, value: "2",  label: "Mobile Apps Shipped" },
 ];
 
 function AnimatedRole({ roles }: { roles: string[] }) {

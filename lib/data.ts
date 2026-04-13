@@ -121,20 +121,75 @@ export const projects: Project[] = [
 export type Experience = {
   role: string;
   company: string;
+  location: string;
   period: string;
+  current?: boolean;
   bullets: string[];
 };
 
 export const experiences: Experience[] = [
   {
-    role: "Full-Stack Developer",
-    company: "Freelance",
-    period: "2022 – Present",
+    role: "Web Developer",
+    company: "Humimic Medical / Clear Ballistics",
+    location: "Greenville, SC (Remote)",
+    period: "Apr 2025 – Present",
+    current: true,
     bullets: [
-      "Contributed to Clear Ballistics — a production e-commerce platform with multi-gateway payments (PayPal, Stripe, Authorize.net), UPS/DHL shipping, and QuickBooks/ShipStation integrations",
-      "Built Tokkatok — a real estate marketplace for the Philippines with role-based portals, subscription tiers, AWS S3 media management, and AsiaPay/Xendit payment gateways",
-      "Developed two cross-platform React Native apps (Expo) for the Tokkatok platform — a customer booking app and a property owner management app",
-      "Worked on BBH — a multi-variant e-commerce web platform built on CodeIgniter with full cart, checkout, blog, and account management",
+      "Maintain and enhance Clear Ballistics — a custom PHP e-commerce platform with multi-gateway payments, UPS/DHL shipping, and QuickBooks/ShipStation integrations",
+      "Manage Humimic Medical WordPress site — theme customization, plugin management, and content updates",
+      "Implement front-end improvements using HTML, CSS, JavaScript, and responsive design best practices",
+      "Optimize website performance, SEO, and page loading speed across both platforms",
+      "Collaborate with marketing and operations teams on landing pages, product updates, and campaigns",
+      "Manage version control and repository updates using Git",
+    ],
+  },
+  {
+    role: "IT System Engineer",
+    company: "Metrologyx Training and Assessment Center Inc.",
+    location: "Mandaue City, Cebu",
+    period: "Jul 2024 – May 2025",
+    bullets: [
+      "Developed and maintained automation systems using the Ignition SCADA platform",
+      "Designed and troubleshot SCADA/HMI systems for industrial operations",
+      "Created and managed company websites ensuring usability, performance, and uptime",
+      "Collaborated with teams to integrate Ignition solutions with IT/OT infrastructure",
+      "Updated and optimized website content, functionality, and security",
+    ],
+  },
+  {
+    role: "Graphic Artist",
+    company: "Metrologyx Training and Assessment Center Inc.",
+    location: "Mandaue City, Cebu",
+    period: "Aug 2023 – May 2025",
+    bullets: [
+      "Developed creative content for advertisements, brochures, tarps, and online campaigns",
+      "Managed printed deliverables, signage, and website pages",
+      "Created and maintained marketing collateral and brand materials",
+      "Developed and managed social media marketing programs",
+    ],
+  },
+  {
+    role: "WordPress Developer",
+    company: "Metrologyx Institute of Technology",
+    location: "Minglanilla, Cebu",
+    period: "Jan 2023 – May 2023",
+    bullets: [
+      "Developed and designed a WordPress website to showcase courses, competencies, and institutional info",
+      "Optimized for responsiveness, navigation, and user engagement",
+      "Implemented SEO best practices to enhance online visibility for prospective students",
+      "Provided training and documentation to staff for content management",
+    ],
+  },
+  {
+    role: "Graphic Designer",
+    company: "Contact Center Solution PH",
+    location: "Mandaue City, Cebu",
+    period: "Dec 2022 – Jul 2023",
+    bullets: [
+      "Designed visual content for social media graphics, brochures, banners, and advertisements",
+      "Developed branding assets and maintained consistency across all company materials",
+      "Collaborated with marketing team to conceptualize and execute creative campaigns",
+      "Edited and enhanced images and videos aligned with brand aesthetics",
     ],
   },
 ];
