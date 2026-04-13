@@ -8,8 +8,10 @@ const banners = [
   "linear-gradient(135deg, #1a1040 0%, #0d0d18 100%)",
   "linear-gradient(135deg, #0d1f30 0%, #090f18 100%)",
   "linear-gradient(135deg, #0d2018 0%, #090f0e 100%)",
+  "linear-gradient(135deg, #1f0d2a 0%, #110a18 100%)",
+  "linear-gradient(135deg, #1a180d 0%, #120f09 100%)",
 ];
-const bannerAccents = ["#7c7fff", "#38bdf8", "#34d399"];
+const bannerAccents = ["#7c7fff", "#38bdf8", "#34d399", "#c084fc", "#fb923c"];
 
 export default function ProjectCard({ project, index = 0 }: { project: Project; index?: number }) {
   return (

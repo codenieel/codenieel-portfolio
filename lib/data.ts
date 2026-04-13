@@ -7,8 +7,8 @@ export const siteConfig = {
   handle: "codenieel",
   role: "Full-Stack Developer",
   tagline: "I build performant web apps and mobile experiences.",
-  bio: "I'm a Full-Stack Developer with a focus on building clean, scalable web applications and cross-platform mobile apps. I work across the entire stack — from database design and PHP/Node backends to React frontends and React Native mobile apps.",
-  bio2: "Currently developing two React Native mobile apps while maintaining production web platforms. I care about clean code, great UX, and shipping things that actually work.",
+  bio: "I'm a Full-Stack Developer based in the Philippines, contributing to real-world client projects as a freelancer. I work across the full stack — PHP/CodeIgniter backends, MySQL databases, React frontends, and React Native mobile apps.",
+  bio2: "I've shipped production platforms across e-commerce, real estate marketplaces, and mobile apps. I care about clean code, solid integrations, and delivering things that actually work in the hands of real users.",
   email: "nieeldan@email.com", // ← replace
   github: "https://github.com/codenieel", // ← replace
   linkedin: "https://linkedin.com/in/codenieel", // ← replace
@@ -29,16 +29,20 @@ export const skills: Skill[] = [
   { name: "React", category: "frontend" },
   { name: "Next.js", category: "frontend" },
   { name: "Tailwind CSS", category: "frontend" },
+  { name: "Bootstrap", category: "frontend" },
   // Mobile
   { name: "React Native", category: "mobile" },
   { name: "Expo", category: "mobile" },
+  { name: "Nativewind", category: "mobile" },
   // Backend
-  { name: "Node.js", category: "backend" },
+  { name: "CodeIgniter", category: "backend" },
   { name: "MySQL", category: "backend" },
   { name: "REST APIs", category: "backend" },
+  { name: "AWS S3", category: "backend" },
   // Tools
   { name: "Git", category: "tools" },
-  { name: "Vercel", category: "tools" },
+  { name: "GitLab CI/CD", category: "tools" },
+  { name: "Firebase", category: "tools" },
   { name: "Figma", category: "tools" },
 ];
 
@@ -54,29 +58,40 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "E-Commerce Platform",
+    title: "Clear Ballistics",
     description:
-      "A full-featured e-commerce platform with product management, real-time cart, payment gateway integrations (PayPal, Stripe), and order tracking. Built for production scale.",
-    tech: ["PHP", "MySQL", "jQuery", "AJAX", "PayPal API", "Stripe"],
-    github: "#", // ← replace with real URL
-    live: "#",
+      "Production e-commerce platform for ballistic gel products. Features multi-gateway payments (PayPal, Stripe, Authorize.net), UPS/DHL shipping rates, loyalty points, QuickBooks sync, ShipStation fulfillment, and campaign management.",
+    tech: ["PHP", "MySQL", "jQuery", "PayPal API", "Stripe", "UPS API", "ShipStation"],
+    live: "https://clearballistics.com",
     featured: true,
   },
   {
-    title: "Staycation Owner App",
+    title: "Tokkatok Platform",
     description:
-      "A React Native mobile app for property owners to manage their staycation listings, track bookings, handle guest communications, and view earnings analytics.",
-    tech: ["React Native", "Expo", "TypeScript", "REST API"],
-    github: "#",
+      "Full-stack real estate marketplace for the Philippines connecting property seekers with owners, agents, and developers. Includes subscription tiers, booking system, AWS S3 media, AsiaPay/Xendit payments, and an AdminLTE admin panel.",
+    tech: ["PHP", "CodeIgniter", "MySQL", "Bootstrap", "AWS S3", "jQuery"],
     featured: true,
   },
   {
-    title: "Customer Booking App",
+    title: "Tokkatok Customer App",
     description:
-      "A cross-platform mobile app allowing customers to browse staycation properties, make bookings, track reservations, and communicate with property owners.",
-    tech: ["React Native", "Expo", "TypeScript", "REST API"],
-    github: "#",
+      "Cross-platform mobile app (iOS & Android) for customers to browse, save, and book properties on the Tokkatok marketplace. Real-time calendar availability, Firebase push notifications, and secure in-app messaging.",
+    tech: ["React Native", "Expo", "TypeScript", "Nativewind", "Firebase", "Zustand"],
     featured: true,
+  },
+  {
+    title: "Tokkatok Owner App",
+    description:
+      "Dedicated mobile app for staycation property owners to manage listings, track bookings, sync availability calendars, upload gallery images, and communicate with guests — all from their phone.",
+    tech: ["React Native", "Expo", "TypeScript", "Nativewind", "Firebase", "React Query"],
+    featured: true,
+  },
+  {
+    title: "BBH Web Platform",
+    description:
+      "Multi-variant e-commerce web platform with product browsing, cart, checkout, blog, and user account management. Built with CodeIgniter and Bootstrap with multiple homepage design variations.",
+    tech: ["PHP", "CodeIgniter", "MySQL", "Bootstrap", "jQuery"],
+    featured: false,
   },
 ];
 
@@ -90,23 +105,13 @@ export type Experience = {
 export const experiences: Experience[] = [
   {
     role: "Full-Stack Developer",
-    company: "Freelance / Independent",
+    company: "Freelance",
     period: "2022 – Present",
     bullets: [
-      "Built and maintained production e-commerce web platforms with PHP, MySQL, and jQuery",
-      "Developing two cross-platform mobile apps using React Native and Expo",
-      "Integrated payment gateways (PayPal, Stripe), shipping APIs (UPS, DHL), and ERP systems (QuickBooks, ShipStation)",
-      "Implemented CI/CD pipelines with GitLab for automated deployments",
-    ],
-  },
-  {
-    role: "Web Developer",
-    company: "Project-Based",
-    period: "2020 – 2022",
-    bullets: [
-      "Delivered custom web solutions for small and medium-sized businesses",
-      "Built RESTful APIs consumed by web and mobile clients",
-      "Focused on performance optimization and responsive design",
+      "Contributed to Clear Ballistics — a production e-commerce platform with multi-gateway payments (PayPal, Stripe, Authorize.net), UPS/DHL shipping, and QuickBooks/ShipStation integrations",
+      "Built Tokkatok — a real estate marketplace for the Philippines with role-based portals, subscription tiers, AWS S3 media management, and AsiaPay/Xendit payment gateways",
+      "Developed two cross-platform React Native apps (Expo) for the Tokkatok platform — a customer booking app and a property owner management app",
+      "Worked on BBH — a multi-variant e-commerce web platform built on CodeIgniter with full cart, checkout, blog, and account management",
     ],
   },
 ];
