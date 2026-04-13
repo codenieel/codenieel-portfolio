@@ -26,7 +26,18 @@ export default function Navbar() {
       const o = new IntersectionObserver(([e]) => { if (e.isIntersecting) setActive(`#${id}`); }, { rootMargin: "-40% 0px -55% 0px" });
       o.observe(el); obs.push(o);
     });
-    return () => obs.forEach((o) => o.disconnect());
+
+    // When scrolled to the bottom, highlight the last nav item (Contact)
+    const handleScrollBottom = () => {
+      const nearBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 80;
+      if (nearBottom) setActive(navLinks[navLinks.length - 1].href);
+    };
+    window.addEventListener("scroll", handleScrollBottom, { passive: true });
+
+    return () => {
+      obs.forEach((o) => o.disconnect());
+      window.removeEventListener("scroll", handleScrollBottom);
+    };
   }, []);
 
   const handleLink = (href: string) => { setActive(href); setMobileOpen(false); };
@@ -56,7 +67,7 @@ export default function Navbar() {
         </a>
 
         {/* Desktop links */}
-        <ul style={{ display: "flex", alignItems: "center", gap: "24px", listStyle: "none", margin: 0, padding: 0 }} className="hidden md:flex">
+        <ul style={{ alignItems: "center", gap: "24px", listStyle: "none", margin: 0, padding: 0 }} className="nav-desktop">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
@@ -85,7 +96,7 @@ export default function Navbar() {
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
           <ThemeToggle />
           <motion.button
-            className="md:hidden"
+            className="nav-mobile-btn"
             onClick={() => setMobileOpen((v) => !v)}
             whileTap={{ scale: 0.93 }}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -108,7 +119,6 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden"
             style={{ background: "var(--nav-bg)", backdropFilter: "blur(10px)", borderBottom: "1px solid var(--border)", overflow: "hidden" }}
           >
             <ul className="section-container" style={{ padding: "10px 20px", display: "flex", flexDirection: "column", gap: "2px", listStyle: "none" }}>

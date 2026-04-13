@@ -6,7 +6,7 @@ export const siteConfig = {
   name: "NieelDev",
   handle: "codenieel",
   role: "Full-Stack Developer",
-  tagline: "I build performant web apps and mobile experiences.",
+  tagline: "Full-Stack Developer specializing in PHP/React web platforms and cross-platform React Native apps — shipping real products used by real people.",
   bio: "I'm a Full-Stack Developer based in the Philippines, contributing to real-world client projects as a freelancer. I work across the full stack — PHP/CodeIgniter backends, MySQL databases, React frontends, and React Native mobile apps.",
   bio2: "I've shipped production platforms across e-commerce, real estate marketplaces, and mobile apps. I care about clean code, solid integrations, and delivering things that actually work in the hands of real users.",
   email: "nieeldan@email.com", // ← replace

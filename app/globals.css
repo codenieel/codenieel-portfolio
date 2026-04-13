@@ -160,6 +160,15 @@ body {
   margin: 0;
 }
 
+/* ── Responsive nav ───────────────────────────────────────── */
+.nav-desktop { display: none !important; }
+.nav-mobile-btn { display: flex !important; }
+
+@media (min-width: 768px) {
+  .nav-desktop { display: flex !important; }
+  .nav-mobile-btn { display: none !important; }
+}
+
 /* ── Hero orb ─────────────────────────────────────────────── */
 .hero-orb {
   position: absolute;
