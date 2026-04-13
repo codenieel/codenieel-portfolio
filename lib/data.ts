@@ -3,7 +3,7 @@
 // ─────────────────────────────────────────────────────────────
 
 export const siteConfig = {
-  name: "Nieel Dan",
+  name: "NieelDev",
   handle: "codenieel",
   role: "Full-Stack Developer",
   tagline: "I build performant web apps and mobile experiences.",

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://codenieel.dev"),
   title: "codenieel | Full-Stack Developer",
   description:
-    "Portfolio of Nieel Dan — Full-Stack Developer building performant web applications and cross-platform mobile apps with React, React Native, PHP, and more.",
+    "Portfolio of NieelDev — Full-Stack Developer building performant web applications and cross-platform mobile apps with React, React Native, PHP, and more.",
   keywords: [
     "Full-Stack Developer",
     "React",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     "Web Developer",
     "codenieel",
   ],
-  authors: [{ name: "Nieel Dan" }],
+  authors: [{ name: "NieelDev" }],
   creator: "codenieel",
   openGraph: {
     type: "website",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     url: "https://codenieel.dev",
     title: "codenieel | Full-Stack Developer",
     description:
-      "Portfolio of Nieel Dan — Full-Stack Developer building performant web applications and cross-platform mobile apps.",
+      "Portfolio of NieelDev — Full-Stack Developer building performant web applications and cross-platform mobile apps.",
     siteName: "codenieel",
     images: [
       {
