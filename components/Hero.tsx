@@ -96,6 +96,16 @@ export default function Hero() {
         overflow: "hidden",
       }}
     >
+      {/* Dot grid background */}
+      <div style={{
+        position: "absolute", inset: 0, zIndex: 0, pointerEvents: "none",
+        backgroundImage: "radial-gradient(var(--border-strong) 1px, transparent 1px)",
+        backgroundSize: "28px 28px",
+        opacity: 0.45,
+        maskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%)",
+        WebkitMaskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%)",
+      }} />
+
       {/* Background orbs */}
       <div
         className="hero-orb"
@@ -185,6 +195,11 @@ export default function Hero() {
           }}
         >
           @{siteConfig.handle}
+          <motion.span
+            animate={{ opacity: [1, 0, 1] }}
+            transition={{ repeat: Infinity, duration: 1, ease: "steps(1)" }}
+            style={{ marginLeft: "2px", fontWeight: 300 }}
+          >|</motion.span>
         </motion.span>
 
         {/* Name */}
@@ -201,8 +216,11 @@ export default function Hero() {
             fontWeight: 800,
             letterSpacing: "-0.04em",
             lineHeight: 1.0,
-            color: "var(--text)",
             margin: "0 0 16px",
+            background: "linear-gradient(135deg, var(--text) 0%, var(--accent) 60%, #a78bfa 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
           }}
         >
           {siteConfig.name}

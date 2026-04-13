@@ -67,6 +67,21 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
           background: `radial-gradient(circle, ${theme.accent}30 0%, transparent 70%)`,
           pointerEvents: "none",
         }} />
+        {/* Featured badge */}
+        {project.featured && (
+          <span style={{
+            position: "absolute", top: "10px", right: "10px", zIndex: 1,
+            display: "inline-flex", alignItems: "center", gap: "3px",
+            fontSize: "9px", fontWeight: 700, letterSpacing: "0.08em",
+            textTransform: "uppercase", padding: "2px 7px", borderRadius: "4px",
+            background: theme.accent + "25",
+            border: `1px solid ${theme.accent}50`,
+            color: theme.accent,
+          }}>
+            ★ Featured
+          </span>
+        )}
+
         {/* Platform tag */}
         <span style={{
           position: "relative", zIndex: 1,

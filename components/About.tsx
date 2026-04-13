@@ -194,12 +194,20 @@ export default function About() {
                       </span>
                     </div>
                     <div style={{ display: "flex", flexWrap: "wrap", gap: "5px" }}>
-                      {grouped[category].map((skill) => (
+                      {grouped[category].map((skill, si) => (
                         <motion.span
                           key={skill.name}
                           className="skill-chip"
-                          whileHover={{ scale: 1.05 }}
-                          transition={{ duration: 0.12 }}
+                          initial={{ opacity: 0, scale: 0.85 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.18, delay: 0.04 + si * 0.04 }}
+                          whileHover={{
+                            scale: 1.08,
+                            boxShadow: "0 0 0 2px var(--accent-subtle-border), 0 0 8px -2px var(--accent)",
+                            color: "var(--accent)",
+                            borderColor: "var(--accent-subtle-border)",
+                          }}
                         >
                           {skill.name}
                         </motion.span>
