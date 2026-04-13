@@ -1,10 +1,25 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import SectionHeading from "./ui/SectionHeading";
 import ScrollReveal from "./ui/ScrollReveal";
 import { experiences } from "@/lib/data";
+
+// Icons mapped to each bullet by keyword
+const bulletIcons: { test: RegExp; icon: string }[] = [
+  { test: /clear ballistics/i,  icon: "🛒" },
+  { test: /tokkatok.*marketplace|real estate/i, icon: "🏠" },
+  { test: /react native|mobile app/i, icon: "📱" },
+  { test: /bbh/i, icon: "🌐" },
+  { test: /payment|gateway|paypal|stripe/i, icon: "💳" },
+  { test: /api|integration/i, icon: "🔌" },
+  { test: /ci\/cd|gitlab|deploy/i, icon: "🚀" },
+];
+
+function getBulletIcon(text: string) {
+  const match = bulletIcons.find((b) => b.test.test(text));
+  return match?.icon ?? "▸";
+}
 
 export default function Experience() {
   return (
@@ -12,67 +27,106 @@ export default function Experience() {
       <div className="section-container">
         <SectionHeading label="Career" title="Experience" />
 
-        <div style={{ position: "relative", maxWidth: "680px", display: "flex", flexDirection: "column" }}>
-          <TimelineLine count={experiences.length} />
-
+        <div style={{ display: "flex", flexDirection: "column", gap: "16px", width: "100%" }}>
           {experiences.map((exp, i) => (
             <ScrollReveal key={i} delay={i * 0.08}>
-              <div style={{ position: "relative", paddingLeft: "24px", paddingBottom: i < experiences.length - 1 ? "16px" : 0 }}>
-                {/* Dot */}
-                <span style={{
-                  position: "absolute", left: 0, top: "6px",
-                  width: "10px", height: "10px", borderRadius: "50%", zIndex: 10,
-                  background: "var(--accent)",
-                  boxShadow: "0 0 0 3px var(--bg-section)",
-                }} />
-
-                {/* Card */}
-                <div style={{ borderRadius: "8px", padding: "14px 16px", background: "var(--bg-card)", border: "1px solid var(--border)" }}>
-                  {/* Header */}
-                  <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start", justifyContent: "space-between", gap: "8px", marginBottom: "10px" }}>
-                    <div>
-                      <h3 style={{ fontSize: "13px", fontWeight: 600, color: "var(--text)", lineHeight: 1.3 }}>{exp.role}</h3>
-                      <p style={{ fontSize: "11.5px", fontWeight: 500, color: "var(--accent)", marginTop: "2px" }}>{exp.company}</p>
-                    </div>
+              <motion.div
+                whileHover={{ y: -1 }}
+                transition={{ duration: 0.18 }}
+                style={{
+                  width: "100%",
+                  borderRadius: "12px",
+                  overflow: "hidden",
+                  background: "var(--bg-card)",
+                  border: "1px solid var(--border)",
+                }}
+              >
+                {/* Card header strip */}
+                <div style={{
+                  padding: "16px 20px",
+                  display: "flex",
+                  flexWrap: "wrap",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  gap: "10px",
+                  borderBottom: "1px solid var(--border)",
+                  background: "var(--bg-card-hover)",
+                }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                    {/* Accent bar */}
                     <span style={{
-                      fontSize: "10px", fontWeight: 600, padding: "3px 8px", borderRadius: "4px",
+                      display: "block", width: "3px", height: "36px",
+                      borderRadius: "3px", background: "var(--accent)", flexShrink: 0,
+                    }} />
+                    <div>
+                      <h3 style={{ fontSize: "14px", fontWeight: 700, color: "var(--text)", lineHeight: 1.2 }}>
+                        {exp.role}
+                      </h3>
+                      <p style={{ fontSize: "12px", fontWeight: 500, color: "var(--accent)", marginTop: "3px" }}>
+                        {exp.company}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                    {/* Status dot */}
+                    <span style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "10px", fontWeight: 600, color: "var(--text-muted)" }}>
+                      <span style={{
+                        width: "6px", height: "6px", borderRadius: "50%",
+                        background: "#22c55e",
+                        boxShadow: "0 0 0 2px rgba(34,197,94,0.2)",
+                        display: "inline-block",
+                        flexShrink: 0,
+                      }} />
+                      Active
+                    </span>
+                    <span style={{
+                      fontSize: "10px", fontWeight: 600, padding: "4px 10px", borderRadius: "5px",
                       background: "var(--accent-subtle)", border: "1px solid var(--accent-subtle-border)", color: "var(--accent)",
-                      whiteSpace: "nowrap",
                     }}>
                       {exp.period}
                     </span>
                   </div>
-
-                  {/* Bullets */}
-                  <ul style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
-                    {exp.bullets.map((bullet, j) => (
-                      <li key={j} style={{ display: "flex", gap: "8px", fontSize: "12px", lineHeight: 1.55, color: "var(--text-muted)" }}>
-                        <span style={{ flexShrink: 0, marginTop: "6px", width: "3px", height: "3px", borderRadius: "50%", background: "var(--text-subtle)", display: "block" }} />
-                        {bullet}
-                      </li>
-                    ))}
-                  </ul>
                 </div>
-              </div>
+
+                {/* Bullets grid */}
+                <div style={{
+                  padding: "16px 20px",
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+                  gap: "10px",
+                }}>
+                  {exp.bullets.map((bullet, j) => (
+                    <motion.div
+                      key={j}
+                      initial={{ opacity: 0, y: 8 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: 0.05 + j * 0.07 }}
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: "10px",
+                        padding: "10px 12px",
+                        borderRadius: "8px",
+                        background: "var(--bg-section)",
+                        border: "1px solid var(--border)",
+                      }}
+                    >
+                      <span style={{ fontSize: "14px", flexShrink: 0, lineHeight: 1.4 }}>
+                        {getBulletIcon(bullet)}
+                      </span>
+                      <p style={{ fontSize: "12px", lineHeight: 1.6, color: "var(--text-muted)", margin: 0 }}>
+                        {bullet}
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
             </ScrollReveal>
           ))}
         </div>
       </div>
     </section>
-  );
-}
-
-function TimelineLine({ count }: { count: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-60px" });
-  return (
-    <div ref={ref} style={{ position: "absolute", left: "4px", top: "8px", width: "1px", height: "calc(100% - 24px)", background: "var(--border)", overflow: "hidden" }}>
-      <motion.div
-        style={{ background: "var(--accent)", width: "100%", height: "100%", transformOrigin: "top" }}
-        initial={{ scaleY: 0 }}
-        animate={isInView ? { scaleY: 1 } : {}}
-        transition={{ duration: 0.5 * count, ease: "easeOut", delay: 0.1 }}
-      />
-    </div>
   );
 }
