@@ -8,7 +8,6 @@ export default function Footer() {
         <span style={{ fontFamily: "monospace", fontWeight: 600, color: "var(--accent)" }}>
           {siteConfig.handle}
         </span>
-        {" "}· Built with Next.js &amp; Framer Motion
       </p>
     </footer>
   );

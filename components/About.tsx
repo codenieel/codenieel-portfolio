@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import ScrollReveal from "./ui/ScrollReveal";
 import SectionHeading from "./ui/SectionHeading";
 import { siteConfig, skills } from "@/lib/data";
@@ -12,6 +13,20 @@ const categoryLabel: Record<string, string> = {
   backend: "Backend & DB",
   tools: "Tools",
 };
+const categoryIcon: Record<string, string> = {
+  language: "{ }",
+  frontend: "⬡",
+  mobile: "◻",
+  backend: "⬢",
+  tools: "⚙",
+};
+
+const highlights = [
+  { value: "3+",  label: "Years in Industry" },
+  { value: "PHP", label: "Primary Backend Lang" },
+  { value: "RN",  label: "React Native Expert" },
+  { value: "PH",  label: "Based in Philippines" },
+];
 
 export default function About() {
   const grouped = skills.reduce<Record<string, typeof skills>>((acc, skill) => {
@@ -25,52 +40,141 @@ export default function About() {
       <div className="section-container">
         <SectionHeading label="About" title="Background & Skills" />
 
-        <div
-          style={{
+        {/* Highlight bar */}
+        <ScrollReveal delay={0.04}>
+          <div style={{
             display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "40px",
-            alignItems: "start",
-          }}
-          className="md-grid-2col"
-        >
-          {/* Bio */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-            <ScrollReveal delay={0.04}>
-              <p style={{ fontSize: "13px", lineHeight: "1.75", color: "var(--text-muted)" }}>
-                {siteConfig.bio}
-              </p>
-            </ScrollReveal>
-            <ScrollReveal delay={0.09}>
-              <p style={{ fontSize: "13px", lineHeight: "1.75", color: "var(--text-muted)" }}>
-                {siteConfig.bio2}
-              </p>
-            </ScrollReveal>
-            <ScrollReveal delay={0.14}>
-              <p style={{ fontSize: "11px", color: "var(--text-subtle)", display: "flex", alignItems: "center", gap: "6px", marginTop: "2px" }}>
-                <span style={{ width: "4px", height: "4px", borderRadius: "50%", background: "var(--accent)", display: "inline-block", flexShrink: 0 }} />
-                Based in <span style={{ color: "var(--text-muted)" }}>{siteConfig.location}</span>
-              </p>
-            </ScrollReveal>
-          </div>
-
-          {/* Skills */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
-            {categoryOrder.filter((cat) => grouped[cat]).map((category, i) => (
-              <ScrollReveal key={category} delay={0.05 + i * 0.05}>
-                <div>
-                  <p style={{ fontSize: "9.5px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text-subtle)", marginBottom: "7px" }}>
-                    {categoryLabel[category]}
-                  </p>
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: "5px" }}>
-                    {grouped[category].map((skill) => (
-                      <span key={skill.name} className="skill-chip">{skill.name}</span>
-                    ))}
-                  </div>
-                </div>
-              </ScrollReveal>
+            gridTemplateColumns: "repeat(4, 1fr)",
+            borderRadius: "10px",
+            overflow: "hidden",
+            border: "1px solid var(--border)",
+            marginBottom: "28px",
+          }}>
+            {highlights.map(({ value, label }, i) => (
+              <div key={label} style={{
+                display: "flex", flexDirection: "column", alignItems: "center",
+                padding: "14px 10px", gap: "3px",
+                background: "var(--bg-card)",
+                borderRight: i < highlights.length - 1 ? "1px solid var(--border)" : "none",
+              }}>
+                <span style={{ fontSize: "17px", fontWeight: 800, letterSpacing: "-0.03em", color: "var(--text)", lineHeight: 1 }}>
+                  {value}
+                </span>
+                <span style={{ fontSize: "10px", color: "var(--text-subtle)", fontWeight: 500, textAlign: "center" }}>
+                  {label}
+                </span>
+              </div>
             ))}
           </div>
+        </ScrollReveal>
+
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px", alignItems: "start" }} className="md-grid-2col">
+
+          {/* Bio card */}
+          <ScrollReveal delay={0.08} direction="left">
+            <div style={{
+              borderRadius: "10px",
+              background: "var(--bg-card)",
+              border: "1px solid var(--border)",
+              overflow: "hidden",
+            }}>
+              <div style={{
+                padding: "10px 14px",
+                borderBottom: "1px solid var(--border)",
+                background: "var(--bg-card-hover)",
+                display: "flex", alignItems: "center", gap: "6px",
+              }}>
+                <span style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-subtle)" }}>
+                  whoami
+                </span>
+                <span style={{ fontFamily: "monospace", fontSize: "10px", color: "var(--accent)" }}>~/about</span>
+              </div>
+              <div style={{ padding: "16px", display: "flex", flexDirection: "column", gap: "12px" }}>
+                <p style={{ fontSize: "13px", lineHeight: 1.75, color: "var(--text-muted)", margin: 0 }}>
+                  {siteConfig.bio}
+                </p>
+                <p style={{ fontSize: "13px", lineHeight: 1.75, color: "var(--text-muted)", margin: 0 }}>
+                  {siteConfig.bio2}
+                </p>
+                <div style={{
+                  display: "flex", alignItems: "center", gap: "6px",
+                  padding: "8px 12px", borderRadius: "7px",
+                  background: "var(--bg-section)", border: "1px solid var(--border)",
+                  marginTop: "2px",
+                }}>
+                  <span style={{ fontSize: "13px" }}>📍</span>
+                  <span style={{ fontSize: "12px", color: "var(--text-muted)", fontWeight: 500 }}>
+                    {siteConfig.location}
+                  </span>
+                  <span style={{
+                    marginLeft: "auto", display: "flex", alignItems: "center", gap: "4px",
+                    fontSize: "10px", fontWeight: 600, color: "var(--text-muted)",
+                  }}>
+                    <span style={{
+                      width: "5px", height: "5px", borderRadius: "50%",
+                      background: "#22c55e",
+                      boxShadow: "0 0 0 2px rgba(34,197,94,0.18)",
+                      display: "inline-block",
+                    }} />
+                    Open to remote
+                  </span>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Skills card */}
+          <ScrollReveal delay={0.12} direction="right">
+            <div style={{
+              borderRadius: "10px",
+              background: "var(--bg-card)",
+              border: "1px solid var(--border)",
+              overflow: "hidden",
+            }}>
+              <div style={{
+                padding: "10px 14px",
+                borderBottom: "1px solid var(--border)",
+                background: "var(--bg-card-hover)",
+                display: "flex", alignItems: "center", gap: "6px",
+              }}>
+                <span style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-subtle)" }}>
+                  Tech Stack
+                </span>
+              </div>
+              <div style={{ padding: "14px 16px", display: "flex", flexDirection: "column", gap: "12px" }}>
+                {categoryOrder.filter((cat) => grouped[cat]).map((category, i) => (
+                  <motion.div
+                    key={category}
+                    initial={{ opacity: 0, x: 10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: 0.06 + i * 0.05 }}
+                  >
+                    <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "6px" }}>
+                      <span style={{ fontFamily: "monospace", fontSize: "10px", color: "var(--accent)", fontWeight: 700 }}>
+                        {categoryIcon[category]}
+                      </span>
+                      <span style={{ fontSize: "9.5px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-subtle)" }}>
+                        {categoryLabel[category]}
+                      </span>
+                    </div>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: "5px" }}>
+                      {grouped[category].map((skill) => (
+                        <motion.span
+                          key={skill.name}
+                          className="skill-chip"
+                          whileHover={{ scale: 1.05 }}
+                          transition={{ duration: 0.12 }}
+                        >
+                          {skill.name}
+                        </motion.span>
+                      ))}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
