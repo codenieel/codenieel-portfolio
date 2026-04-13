@@ -11,6 +11,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://codenieel.dev"),
+  icons: {
+    icon: "/logo.svg",
+    shortcut: "/logo.svg",
+    apple: "/logo.svg",
+  },
   title: "codenieel | Full-Stack Developer",
   description:
     "Portfolio of NieelDev — Full-Stack Developer building performant web applications and cross-platform mobile apps with React, React Native, PHP, and more.",

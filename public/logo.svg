@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#9d9fff"/>
+      <stop offset="100%" stop-color="#5b5ef5"/>
+    </linearGradient>
+  </defs>
+  <!-- Background rounded square -->
+  <rect width="48" height="48" rx="12" fill="#111119"/>
+  <rect width="48" height="48" rx="12" fill="url(#grad)" fill-opacity="0.12"/>
+  <rect x="0.75" y="0.75" width="46.5" height="46.5" rx="11.25" stroke="url(#grad)" stroke-width="1.5" fill="none" stroke-opacity="0.4"/>
+  <!-- < bracket -->
+  <path d="M14 18 L9 24 L14 30" stroke="url(#grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- /> slash+bracket -->
+  <path d="M20 30 L28 18" stroke="url(#grad)" stroke-width="2.5" stroke-linecap="round" stroke-opacity="0.6"/>
+  <path d="M34 18 L39 24 L34 30" stroke="url(#grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

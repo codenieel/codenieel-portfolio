@@ -126,7 +126,7 @@ export default function Hero() {
           width: "300px",
           height: "300px",
           opacity: 0.07,
-          background: "radial-gradient(circle, #a78bfa 0%, transparent 70%)",
+          background: "radial-gradient(circle, #5b5ef5 0%, transparent 70%)",
           bottom: "10%",
           right: "10%",
         }}
@@ -217,7 +217,7 @@ export default function Hero() {
             letterSpacing: "-0.04em",
             lineHeight: 1.0,
             margin: "0 0 16px",
-            background: "linear-gradient(135deg, var(--text) 0%, var(--accent) 60%, #a78bfa 100%)",
+            background: "linear-gradient(135deg, var(--text) 0%, var(--accent) 100%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",

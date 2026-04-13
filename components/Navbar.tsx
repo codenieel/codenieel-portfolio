@@ -61,9 +61,12 @@ export default function Navbar() {
         <a
           href="#hero"
           onClick={() => handleLink("#hero")}
-          style={{ fontFamily: "monospace", fontSize: "13px", fontWeight: 700, color: "var(--accent)", textDecoration: "none", letterSpacing: "-0.02em" }}
+          style={{ display: "flex", alignItems: "center", gap: "8px", textDecoration: "none" }}
         >
-          {"<codenieel />"}
+          <img src="/logo.svg" alt="codenieel logo" width={28} height={28} style={{ display: "block", borderRadius: "7px" }} />
+          <span style={{ fontFamily: "monospace", fontSize: "13px", fontWeight: 700, color: "var(--accent)", letterSpacing: "-0.02em" }}>
+            {"<codenieel />"}
+          </span>
         </a>
 
         {/* Desktop links */}

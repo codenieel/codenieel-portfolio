@@ -26,7 +26,7 @@ export default function ScrollProgress() {
           position: "absolute",
           top: 0, left: 0, right: 0,
           height: `${progress * 100}%`,
-          background: "linear-gradient(180deg, var(--accent) 0%, #a78bfa 100%)",
+          background: "var(--accent)",
           borderRadius: "0 0 2px 0",
         }}
         transition={{ ease: "linear", duration: 0.05 }}
