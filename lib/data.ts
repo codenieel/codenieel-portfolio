@@ -71,7 +71,6 @@ export const projects: Project[] = [
       "UPS API",
       "ShipStation",
     ],
-    live: "https://clearballistics.com",
     featured: true,
   },
   {

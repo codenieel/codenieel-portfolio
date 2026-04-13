@@ -1,9 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Code2, Layout, Smartphone, Database, Wrench } from "lucide-react";
 import ScrollReveal from "./ui/ScrollReveal";
 import SectionHeading from "./ui/SectionHeading";
 import { siteConfig, skills } from "@/lib/data";
+import type { ReactNode } from "react";
 
 const categoryOrder = ["language", "frontend", "mobile", "backend", "tools"] as const;
 const categoryLabel: Record<string, string> = {
@@ -13,12 +15,12 @@ const categoryLabel: Record<string, string> = {
   backend: "Backend & DB",
   tools: "Tools",
 };
-const categoryIcon: Record<string, string> = {
-  language: "{ }",
-  frontend: "⬡",
-  mobile: "◻",
-  backend: "⬢",
-  tools: "⚙",
+const categoryIcon: Record<string, ReactNode> = {
+  language: <Code2 size={11} strokeWidth={2.5} />,
+  frontend: <Layout size={11} strokeWidth={2.5} />,
+  mobile:   <Smartphone size={11} strokeWidth={2.5} />,
+  backend:  <Database size={11} strokeWidth={2.5} />,
+  tools:    <Wrench size={11} strokeWidth={2.5} />,
 };
 
 const highlights = [
@@ -151,7 +153,7 @@ export default function About() {
                     transition={{ duration: 0.3, delay: 0.06 + i * 0.05 }}
                   >
                     <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "6px" }}>
-                      <span style={{ fontFamily: "monospace", fontSize: "10px", color: "var(--accent)", fontWeight: 700 }}>
+                      <span style={{ color: "var(--accent)", display: "flex", alignItems: "center" }}>
                         {categoryIcon[category]}
                       </span>
                       <span style={{ fontSize: "9.5px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-subtle)" }}>
