@@ -76,7 +76,7 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    title: "Tokkatok Platform",
+    title: "Tokkatok",
     description:
       "Full-stack real estate marketplace for the Philippines connecting property seekers with owners, agents, and developers. Includes subscription tiers, booking system, AWS S3 media, AsiaPay/Xendit payments, and an AdminLTE admin panel.",
     tech: ["PHP", "CodeIgniter", "MySQL", "Bootstrap", "AWS S3", "jQuery"],
@@ -111,7 +111,7 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    title: "BBH Web Platform",
+    title: "Beauty Buffet Holistica (BBH)",
     description:
       "Multi-variant e-commerce web platform with product browsing, cart, checkout, blog, and user account management. Built with CodeIgniter and Bootstrap with multiple homepage design variations.",
     tech: ["PHP", "CodeIgniter", "MySQL", "Bootstrap", "jQuery"],
@@ -204,15 +204,27 @@ export const experiences: Experience[] = [
 export const freelanceProjects: Experience[] = [
   {
     role: "Freelance Full-Stack Developer",
-    company: "Tokkatok Platform",
+    company: "Tokkatok",
     location: "Remote · Philippines",
     period: "Jan 2026 – Present",
     current: true,
     bullets: [
-      { text: "Built the Tokkatok web marketplace — a full-stack real estate platform for the Philippines with role-based portals (admin, agent, owner, customer), subscription tiers, and an AdminLTE admin panel", platform: "web" },
-      { text: "Integrated AsiaPay and Xendit payment gateways, AWS S3 for media management, and a booking system with availability calendars", platform: "web" },
-      { text: "Developed Tokkatok Customer App — a cross-platform React Native (Expo) app for browsing, saving, and booking properties with Firebase push notifications and real-time availability", platform: "mobile" },
-      { text: "Developed Tokkatok Owner App — a React Native app for staycation owners to manage listings, track bookings, sync calendars, upload gallery images, and message guests", platform: "mobile" },
+      {
+        text: "Built the Tokkatok web marketplace — a full-stack real estate platform for the Philippines with role-based portals (admin, agent, owner, customer), subscription tiers, and an AdminLTE admin panel",
+        platform: "web",
+      },
+      {
+        text: "Integrated AsiaPay and Xendit payment gateways, AWS S3 for media management, and a booking system with availability calendars",
+        platform: "web",
+      },
+      {
+        text: "Developed Tokkatok Customer App — a cross-platform React Native (Expo) app for browsing, saving, and booking properties with Firebase push notifications and real-time availability",
+        platform: "mobile",
+      },
+      {
+        text: "Developed Tokkatok Owner App — a React Native app for staycation owners to manage listings, track bookings, sync calendars, upload gallery images, and message guests",
+        platform: "mobile",
+      },
     ],
   },
   {
@@ -221,9 +233,18 @@ export const freelanceProjects: Experience[] = [
     location: "Remote · Philippines",
     period: "Dec 2025 – Apr 2026",
     bullets: [
-      { text: "Built the BBH storefront — a multi-variant e-commerce web platform with product browsing, cart, and checkout", platform: "web" },
-      { text: "Developed a custom admin panel for product, order, and content management with multiple homepage design variations", platform: "web" },
-      { text: "Built on CodeIgniter and Bootstrap with jQuery-driven AJAX interactions throughout", platform: "web" },
+      {
+        text: "Built the BBH storefront — a multi-variant e-commerce web platform with product browsing, cart, and checkout",
+        platform: "web",
+      },
+      {
+        text: "Developed a custom admin panel for product, order, and content management with multiple homepage design variations",
+        platform: "web",
+      },
+      {
+        text: "Built on CodeIgniter and Bootstrap with jQuery-driven AJAX interactions throughout",
+        platform: "web",
+      },
     ],
   },
 ];
@@ -233,7 +254,8 @@ export function getStats() {
   // Years of experience — from careerStartDate to today
   const start = new Date(siteConfig.careerStartDate);
   const now = new Date();
-  const yearsExact = (now.getTime() - start.getTime()) / (1000 * 60 * 60 * 24 * 365.25);
+  const yearsExact =
+    (now.getTime() - start.getTime()) / (1000 * 60 * 60 * 24 * 365.25);
   const years = Math.floor(yearsExact);
 
   // Production projects — count all projects
@@ -241,7 +263,7 @@ export function getStats() {
 
   // Mobile apps — count projects using React Native / Expo
   const mobileApps = projects.filter((p) =>
-    p.tech.some((t) => /react native|expo/i.test(t))
+    p.tech.some((t) => /react native|expo/i.test(t)),
   ).length;
 
   return { years, productionProjects, mobileApps };
