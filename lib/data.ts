@@ -6,10 +6,11 @@ export const siteConfig = {
   name: "NieelDev",
   handle: "codenieel",
   role: "Full-Stack Developer",
-  tagline: "Full-Stack Developer specializing in PHP/React web platforms and cross-platform React Native apps — shipping real products used by real people.",
+  tagline:
+    "Full-Stack Developer specializing in PHP/React web platforms and cross-platform React Native apps — shipping real products used by real people.",
   bio: "I'm a Full-Stack Developer based in the Philippines, contributing to real-world client projects as a freelancer. I work across the full stack — PHP/CodeIgniter backends, MySQL databases, React frontends, and React Native mobile apps.",
   bio2: "I've shipped production platforms across e-commerce, real estate marketplaces, and mobile apps. I care about clean code, solid integrations, and delivering things that actually work in the hands of real users.",
-  email: "nieeldan@email.com", // ← replace
+  email: "daldedaniellus@gmail.com", // ← replace
   github: "https://github.com/codenieel", // ← replace
   linkedin: "https://linkedin.com/in/codenieel", // ← replace
   location: "Philippines",
@@ -61,7 +62,15 @@ export const projects: Project[] = [
     title: "Clear Ballistics",
     description:
       "Production e-commerce platform for ballistic gel products. Features multi-gateway payments (PayPal, Stripe, Authorize.net), UPS/DHL shipping rates, loyalty points, QuickBooks sync, ShipStation fulfillment, and campaign management.",
-    tech: ["PHP", "MySQL", "jQuery", "PayPal API", "Stripe", "UPS API", "ShipStation"],
+    tech: [
+      "PHP",
+      "MySQL",
+      "jQuery",
+      "PayPal API",
+      "Stripe",
+      "UPS API",
+      "ShipStation",
+    ],
     live: "https://clearballistics.com",
     featured: true,
   },
@@ -76,14 +85,28 @@ export const projects: Project[] = [
     title: "Tokkatok Customer App",
     description:
       "Cross-platform mobile app (iOS & Android) for customers to browse, save, and book properties on the Tokkatok marketplace. Real-time calendar availability, Firebase push notifications, and secure in-app messaging.",
-    tech: ["React Native", "Expo", "TypeScript", "Nativewind", "Firebase", "Zustand"],
+    tech: [
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "Nativewind",
+      "Firebase",
+      "Zustand",
+    ],
     featured: true,
   },
   {
     title: "Tokkatok Owner App",
     description:
       "Dedicated mobile app for staycation property owners to manage listings, track bookings, sync availability calendars, upload gallery images, and communicate with guests — all from their phone.",
-    tech: ["React Native", "Expo", "TypeScript", "Nativewind", "Firebase", "React Query"],
+    tech: [
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "Nativewind",
+      "Firebase",
+      "React Query",
+    ],
     featured: true,
   },
   {
