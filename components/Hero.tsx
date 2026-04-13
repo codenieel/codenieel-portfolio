@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Github,
@@ -19,10 +19,43 @@ const ROLES = [
 ];
 
 const STATS = [
-  { icon: Globe, value: "3+", label: "Years Experience" },
-  { icon: Code2, value: "5+", label: "Production Projects" },
-  { icon: Smartphone, value: "2", label: "Mobile Apps Shipped" },
+  { icon: Globe,      value: "3+", target: 3, label: "Years Experience" },
+  { icon: Code2,      value: "5+", target: 5, label: "Production Projects" },
+  { icon: Smartphone, value: "2",  target: 2, label: "Mobile Apps Shipped" },
 ];
+
+function CountUp({ target, suffix = "", duration = 1.2 }: { target: number; suffix?: string; duration?: number }) {
+  const [count, setCount] = useState(0);
+  const [started, setStarted] = useState(false);
+  const ref = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { setStarted(true); observer.disconnect(); }
+    }, { threshold: 0.5 });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!started) return;
+    let startTime: number;
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
+      // ease out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * target));
+      if (progress < 1) requestAnimationFrame(step);
+      else setCount(target);
+    };
+    requestAnimationFrame(step);
+  }, [started, target, duration]);
+
+  return <span ref={ref}>{count}{suffix}</span>;
+}
 
 function AnimatedRole({ roles }: { roles: string[] }) {
   const [index, setIndex] = useState(0);
@@ -306,7 +339,7 @@ export default function Hero() {
             overflow: "hidden",
           }}
         >
-          {STATS.map(({ icon: Icon, value, label }, i) => (
+          {STATS.map(({ icon: Icon, value, target, label }, i) => (
             <div key={label} style={{ display: "flex", alignItems: "center" }}>
               <div
                 style={{
@@ -331,7 +364,7 @@ export default function Hero() {
                     lineHeight: 1,
                   }}
                 >
-                  {value}
+                  <CountUp target={target} suffix={value.replace(String(target), "")} />
                 </span>
                 <span
                   style={{

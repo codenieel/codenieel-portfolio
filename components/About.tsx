@@ -2,10 +2,43 @@
 
 import { motion } from "framer-motion";
 import { Code2, Layout, Smartphone, Database, Wrench } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
 import ScrollReveal from "./ui/ScrollReveal";
 import SectionHeading from "./ui/SectionHeading";
 import { siteConfig, skills } from "@/lib/data";
 import type { ReactNode } from "react";
+
+function CountUp({ target, suffix = "", duration = 1.2 }: { target: number; suffix?: string; duration?: number }) {
+  const [count, setCount] = useState(0);
+  const [started, setStarted] = useState(false);
+  const ref = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { setStarted(true); observer.disconnect(); }
+    }, { threshold: 0.5 });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!started) return;
+    let startTime: number;
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * target));
+      if (progress < 1) requestAnimationFrame(step);
+      else setCount(target);
+    };
+    requestAnimationFrame(step);
+  }, [started, target, duration]);
+
+  return <span ref={ref}>{count}{suffix}</span>;
+}
 
 const categoryOrder = ["language", "frontend", "mobile", "backend", "tools"] as const;
 const categoryLabel: Record<string, string> = {
@@ -24,10 +57,10 @@ const categoryIcon: Record<string, ReactNode> = {
 };
 
 const highlights = [
-  { value: "3+",  label: "Years in Industry" },
-  { value: "PHP", label: "Primary Backend Lang" },
-  { value: "RN",  label: "React Native Expert" },
-  { value: "PH",  label: "Based in Philippines" },
+  { value: "3+",  label: "Years in Industry",   target: 3, suffix: "+" },
+  { value: "PHP", label: "Primary Backend Lang", target: null },
+  { value: "RN",  label: "React Native Expert",  target: null },
+  { value: "PH",  label: "Based in Philippines", target: null },
 ];
 
 export default function About() {
@@ -52,7 +85,7 @@ export default function About() {
             border: "1px solid var(--border)",
             marginBottom: "28px",
           }}>
-            {highlights.map(({ value, label }, i) => (
+            {highlights.map(({ value, label, target, suffix }, i) => (
               <div key={label} style={{
                 display: "flex", flexDirection: "column", alignItems: "center",
                 padding: "14px 10px", gap: "3px",
@@ -60,7 +93,7 @@ export default function About() {
                 borderRight: i < highlights.length - 1 ? "1px solid var(--border)" : "none",
               }}>
                 <span style={{ fontSize: "17px", fontWeight: 800, letterSpacing: "-0.03em", color: "var(--text)", lineHeight: 1 }}>
-                  {value}
+                  {target !== null ? <CountUp target={target} suffix={suffix ?? ""} /> : value}
                 </span>
                 <span style={{ fontSize: "10px", color: "var(--text-subtle)", fontWeight: 500, textAlign: "center" }}>
                   {label}
