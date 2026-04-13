@@ -50,11 +50,11 @@ export default function Contact() {
               </div>
 
               <h2 style={{ fontSize: "clamp(22px, 3.5vw, 30px)", fontWeight: 800, letterSpacing: "-0.03em", color: "var(--text)", lineHeight: 1.15, margin: "0 0 10px", maxWidth: "480px" }}>
-                Let's build something great together
+                Let&apos;s build something great together
               </h2>
 
               <p style={{ fontSize: "13px", color: "var(--text-muted)", lineHeight: 1.7, maxWidth: "420px", margin: "0 0 24px" }}>
-                I'm open to freelance projects, full-time roles, and interesting collaborations. Whether you have a project in mind or just want to connect — my inbox is always open.
+                I&apos;m open to freelance projects, full-time roles, and interesting collaborations. Whether you have a project in mind or just want to connect — my inbox is always open.
               </p>
 
               <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
