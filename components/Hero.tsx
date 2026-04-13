@@ -197,7 +197,7 @@ export default function Hero() {
           @{siteConfig.handle}
           <motion.span
             animate={{ opacity: [1, 0, 1] }}
-            transition={{ repeat: Infinity, duration: 1, ease: "steps(1)" }}
+            transition={{ repeat: Infinity, duration: 0.8, ease: "linear" }}
             style={{ marginLeft: "2px", fontWeight: 300 }}
           >|</motion.span>
         </motion.span>
