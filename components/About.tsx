@@ -5,7 +5,7 @@ import { Code2, Layout, Smartphone, Database, Wrench } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import ScrollReveal from "./ui/ScrollReveal";
 import SectionHeading from "./ui/SectionHeading";
-import { siteConfig, skills } from "@/lib/data";
+import { siteConfig, skills, getStats } from "@/lib/data";
 import type { ReactNode } from "react";
 
 function CountUp({ target, suffix = "", duration = 1.2 }: { target: number; suffix?: string; duration?: number }) {
@@ -56,11 +56,13 @@ const categoryIcon: Record<string, ReactNode> = {
   tools:    <Wrench size={11} strokeWidth={2.5} />,
 };
 
+const { years } = getStats();
+
 const highlights = [
-  { value: "3+",  label: "Years in Industry",   target: 3, suffix: "+" },
-  { value: "PHP", label: "Primary Backend Lang", target: null },
-  { value: "RN",  label: "React Native Expert",  target: null },
-  { value: "PH",  label: "Based in Philippines", target: null },
+  { value: `${years}+`, label: "Years in Industry",   target: years, suffix: "+" },
+  { value: "PHP",       label: "Primary Backend Lang", target: null,  suffix: "" },
+  { value: "RN",        label: "React Native Expert",  target: null,  suffix: "" },
+  { value: "PH",        label: "Based in Philippines", target: null,  suffix: "" },
 ];
 
 export default function About() {

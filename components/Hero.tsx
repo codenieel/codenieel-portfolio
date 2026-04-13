@@ -10,7 +10,7 @@ import {
   Smartphone,
   Globe,
 } from "lucide-react";
-import { siteConfig } from "@/lib/data";
+import { siteConfig, getStats } from "@/lib/data";
 
 const ROLES = [
   "Full-Stack Developer",
@@ -18,10 +18,12 @@ const ROLES = [
   "Web Developer",
 ];
 
+const { years, productionProjects, mobileApps } = getStats();
+
 const STATS = [
-  { icon: Globe,      value: "3+", target: 3, label: "Years Experience" },
-  { icon: Code2,      value: "5+", target: 5, label: "Production Projects" },
-  { icon: Smartphone, value: "2",  target: 2, label: "Mobile Apps Shipped" },
+  { icon: Globe,      target: years,             suffix: "+", label: "Years Experience" },
+  { icon: Code2,      target: productionProjects, suffix: "+", label: "Production Projects" },
+  { icon: Smartphone, target: mobileApps,         suffix: "",  label: "Mobile Apps Shipped" },
 ];
 
 function CountUp({ target, suffix = "", duration = 1.2 }: { target: number; suffix?: string; duration?: number }) {
@@ -357,7 +359,7 @@ export default function Hero() {
             overflow: "hidden",
           }}
         >
-          {STATS.map(({ icon: Icon, value, target, label }, i) => (
+          {STATS.map(({ icon: Icon, target, suffix, label }, i) => (
             <div key={label} style={{ display: "flex", alignItems: "center" }}>
               <div
                 style={{
@@ -382,7 +384,7 @@ export default function Hero() {
                     lineHeight: 1,
                   }}
                 >
-                  <CountUp target={target} suffix={value.replace(String(target), "")} />
+                  <CountUp target={target} suffix={suffix} />
                 </span>
                 <span
                   style={{

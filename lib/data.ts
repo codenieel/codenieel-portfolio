@@ -10,10 +10,12 @@ export const siteConfig = {
     "Full-Stack Developer specializing in PHP/React web platforms and cross-platform React Native apps — shipping real products used by real people.",
   bio: "I'm a Full-Stack Developer based in the Philippines, contributing to real-world client projects as a freelancer. I work across the full stack — PHP/CodeIgniter backends, MySQL databases, React frontends, and React Native mobile apps.",
   bio2: "I've shipped production platforms across e-commerce, real estate marketplaces, and mobile apps. I care about clean code, solid integrations, and delivering things that actually work in the hands of real users.",
-  email: "daldedaniellus@gmail.com", // ← replace
-  github: "https://github.com/codenieel", // ← replace
-  linkedin: "https://linkedin.com/in/codenieel", // ← replace
+  email: "daldedaniellus@gmail.com",
+  github: "https://github.com/codenieel",
+  linkedin: "https://linkedin.com/in/codenieel",
   location: "Philippines",
+  // Used to auto-calculate years of experience — update if career start changes
+  careerStartDate: "2022-12-01",
 };
 
 export type Skill = {
@@ -225,6 +227,25 @@ export const freelanceProjects: Experience[] = [
     ],
   },
 ];
+
+// Auto-calculated stats derived from actual data
+export function getStats() {
+  // Years of experience — from careerStartDate to today
+  const start = new Date(siteConfig.careerStartDate);
+  const now = new Date();
+  const yearsExact = (now.getTime() - start.getTime()) / (1000 * 60 * 60 * 24 * 365.25);
+  const years = Math.floor(yearsExact);
+
+  // Production projects — count all projects
+  const productionProjects = projects.length;
+
+  // Mobile apps — count projects using React Native / Expo
+  const mobileApps = projects.filter((p) =>
+    p.tech.some((t) => /react native|expo/i.test(t))
+  ).length;
+
+  return { years, productionProjects, mobileApps };
+}
 
 export const navLinks = [
   { label: "Home", href: "#hero" },
