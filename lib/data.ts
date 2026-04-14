@@ -116,6 +116,13 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    title: "Humimic Medical",
+    description:
+      "Corporate website for Humimic Medical — a US-based medical simulation company. Handles theme customization, plugin management, content updates, SEO optimization, and performance improvements.",
+    tech: ["WordPress", "Elementor", "PHP", "SEO"],
+    featured: false,
+  },
+  {
     title: "Beauty Buffet Holistica (BBH)",
     description:
       "Multi-variant e-commerce web platform with product browsing, cart, checkout, blog, and user account management. Built with CodeIgniter and Bootstrap with multiple homepage design variations.",
