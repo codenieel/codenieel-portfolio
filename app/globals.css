@@ -169,6 +169,52 @@ body {
   .nav-mobile-btn { display: none !important; }
 }
 
+/* ── Tech marquee ─────────────────────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+  gap: 0;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 18px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+  border-right: 1px solid var(--border);
+  font-family: monospace;
+  letter-spacing: 0.02em;
+  transition: color 0.15s;
+  cursor: default;
+}
+
+.marquee-item:hover {
+  color: var(--text);
+}
+
+.marquee-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--dot-color, var(--accent));
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
 /* ── Hero orb ─────────────────────────────────────────────── */
 .hero-orb {
   position: absolute;
