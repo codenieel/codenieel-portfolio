@@ -71,6 +71,7 @@ export const projects: Project[] = [
       "PayPal API",
       "Stripe",
       "UPS API",
+      "DHL API",
       "ShipStation",
     ],
     featured: true,
