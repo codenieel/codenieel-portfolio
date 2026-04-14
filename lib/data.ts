@@ -19,7 +19,7 @@ export const siteConfig = {
   location: "Philippines",
   // Drop your photo in /public/avatar.jpg and set this to "/avatar.jpg"
   // Leave as "" to hide the avatar
-  avatar: "/avatar.jpg",
+  avatar: "/avatar.JPG",
   // Drop your resume PDF in /public/ and set this to "/resume.pdf"
   // Leave as "" to hide the resume button
   resume: "/CV-DALDE.pdf",
