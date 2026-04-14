@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, ArrowUpRight, MessageSquare, MapPin } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowUpRight, MessageSquare, MapPin, FileDown } from "lucide-react";
 import ScrollReveal from "./ui/ScrollReveal";
 import { siteConfig } from "@/lib/data";
 
@@ -74,6 +74,26 @@ export default function Contact() {
                 >
                   <Mail size={13} /> Send a Message
                 </motion.a>
+
+                {siteConfig.resume && (
+                  <motion.a
+                    href={siteConfig.resume}
+                    download
+                    style={{
+                      display: "inline-flex", alignItems: "center", gap: "6px",
+                      padding: "10px 16px", borderRadius: "8px",
+                      fontSize: "13px", fontWeight: 600,
+                      color: "var(--accent)",
+                      background: "var(--accent-subtle)",
+                      border: "1px solid var(--accent-subtle-border)",
+                      textDecoration: "none",
+                    }}
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                  >
+                    <FileDown size={13} /> Download Resume
+                  </motion.a>
+                )}
 
                 <div style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "11px", color: "var(--text-subtle)" }}>
                   <MapPin size={11} />

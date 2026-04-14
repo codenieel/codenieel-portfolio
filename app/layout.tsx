@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   title: "codenieel | Full-Stack Developer",
   description:
-    "Portfolio of NieelDev — Full-Stack Developer building performant web applications and cross-platform mobile apps with React, React Native, PHP, and more.",
+    "Portfolio of Daniel Lusares Dalde (codenieel) — Full-Stack Developer building performant web applications and cross-platform mobile apps with React, React Native, PHP, and more.",
   keywords: [
     "Full-Stack Developer",
     "React",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     "Web Developer",
     "codenieel",
   ],
-  authors: [{ name: "NieelDev" }],
+  authors: [{ name: "Daniel Lusares Dalde" }],
   creator: "codenieel",
   openGraph: {
     type: "website",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     url: "https://codenieel.dev",
     title: "codenieel | Full-Stack Developer",
     description:
-      "Portfolio of NieelDev — Full-Stack Developer building performant web applications and cross-platform mobile apps.",
+      "Portfolio of Daniel Lusares Dalde (codenieel) — Full-Stack Developer building performant web applications and cross-platform mobile apps.",
     siteName: "codenieel",
     images: [
       {

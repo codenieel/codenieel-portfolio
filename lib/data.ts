@@ -3,7 +3,7 @@
 // ─────────────────────────────────────────────────────────────
 
 export const siteConfig = {
-  name: "NieelDev",
+  name: "Daniel Lusares Dalde",
   handle: "<codenieel />",
   role: "Full-Stack Developer",
   tagline:
@@ -20,6 +20,9 @@ export const siteConfig = {
   // Drop your photo in /public/avatar.jpg and set this to "/avatar.jpg"
   // Leave as "" to hide the avatar
   avatar: "/avatar.jpg",
+  // Drop your resume PDF in /public/ and set this to "/resume.pdf"
+  // Leave as "" to hide the resume button
+  resume: "/CV-DALDE.pdf",
   // Used to auto-calculate years of experience — update if career start changes
   careerStartDate: "2022-12-01",
 };
