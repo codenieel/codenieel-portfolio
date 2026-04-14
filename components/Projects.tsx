@@ -27,7 +27,7 @@ export default function Projects() {
           <SectionHeading
             label="Work"
             title="Selected Projects"
-            subtitle="Production platforms I've contributed to as a freelancer."
+            subtitle="Production platforms I've built and maintained — web, mobile, and everything in between."
           />
 
           {/* Filter tabs */}

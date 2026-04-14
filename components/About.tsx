@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Code2, Layout, Smartphone, Database, Wrench } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import ScrollReveal from "./ui/ScrollReveal";
 import SectionHeading from "./ui/SectionHeading";
 import { siteConfig, skills, getStats } from "@/lib/data";
@@ -218,12 +219,13 @@ export default function About() {
                 {/* Photo + bio row */}
                 <div className="about-bio-row">
                   {siteConfig.avatar && (
-                    <img
+                    <Image
                       src={siteConfig.avatar}
                       alt={siteConfig.name}
                       width={160}
                       height={160}
                       className="about-bio-img"
+                      priority
                     />
                   )}
                   <div style={{ display: "flex", flexDirection: "column", gap: "10px", flex: 1, minWidth: 0 }}>

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import ThemeToggle from "./ui/ThemeToggle";
 import { navLinks } from "@/lib/data";
 
@@ -63,7 +64,7 @@ export default function Navbar() {
           onClick={() => handleLink("#hero")}
           style={{ display: "flex", alignItems: "center", gap: "8px", textDecoration: "none" }}
         >
-          <img src="/logo.svg" alt="codenieel logo" width={28} height={28} style={{ display: "block", borderRadius: "7px" }} />
+          <Image src="/logo.svg" alt="codenieel logo" width={28} height={28} style={{ display: "block", borderRadius: "7px" }} />
           <span style={{ fontFamily: "monospace", fontSize: "13px", fontWeight: 700, color: "var(--accent)", letterSpacing: "-0.02em" }}>
             {"<codenieel />"}
           </span>
