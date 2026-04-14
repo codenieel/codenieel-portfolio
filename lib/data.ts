@@ -81,6 +81,14 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    title: "Humimic Medical",
+    description:
+      "Corporate website for Humimic Medical — a US-based medical simulation company. Handles theme customization, plugin management, content updates, SEO optimization, and performance improvements.",
+    tech: ["WordPress", "Elementor", "PHP", "SEO"],
+    live: "https://humimic.com",
+    featured: true,
+  },
+  {
     title: "Tokkatok",
     description:
       "Full-stack real estate marketplace for the Philippines connecting property seekers with owners, agents, and developers. Includes subscription tiers, booking system, AWS S3 media, AsiaPay/Xendit payments, and an AdminLTE admin panel.",
@@ -114,13 +122,6 @@ export const projects: Project[] = [
       "React Query",
     ],
     featured: true,
-  },
-  {
-    title: "Humimic Medical",
-    description:
-      "Corporate website for Humimic Medical — a US-based medical simulation company. Handles theme customization, plugin management, content updates, SEO optimization, and performance improvements.",
-    tech: ["WordPress", "Elementor", "PHP", "SEO"],
-    featured: false,
   },
   {
     title: "Beauty Buffet Holistica (BBH)",
