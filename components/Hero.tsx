@@ -204,13 +204,13 @@ export default function Hero() {
           >|</motion.span>
         </motion.span>
 
-        {/* Name */}
+        {/* Name — LCP element: start visible, only animate position */}
         <motion.h1
-          initial={{ opacity: 0, y: 18 }}
+          initial={{ opacity: 1, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
-            duration: 0.55,
-            delay: 0.2,
+            duration: 0.45,
+            delay: 0,
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
           style={{

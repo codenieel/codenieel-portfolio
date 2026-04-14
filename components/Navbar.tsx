@@ -13,7 +13,16 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 16);
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 16);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -29,9 +38,16 @@ export default function Navbar() {
     });
 
     // When scrolled to the bottom, highlight the last nav item (Contact)
+    let ticking2 = false;
     const handleScrollBottom = () => {
-      const nearBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 80;
-      if (nearBottom) setActive(navLinks[navLinks.length - 1].href);
+      if (!ticking2) {
+        requestAnimationFrame(() => {
+          const nearBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 80;
+          if (nearBottom) setActive(navLinks[navLinks.length - 1].href);
+          ticking2 = false;
+        });
+        ticking2 = true;
+      }
     };
     window.addEventListener("scroll", handleScrollBottom, { passive: true });
 
