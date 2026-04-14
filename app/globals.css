@@ -169,6 +169,36 @@ body {
   .nav-mobile-btn { display: none !important; }
 }
 
+/* ── About bio row ────────────────────────────────────────── */
+.about-bio-row {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+.about-bio-row .about-bio-img {
+  width: 140px;
+  height: 140px;
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: top center;
+  border: 1px solid var(--border);
+  display: block;
+  flex-shrink: 0;
+}
+
+@media (min-width: 600px) {
+  .about-bio-row {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .about-bio-row .about-bio-img {
+    width: 160px;
+    height: 160px;
+  }
+}
+
 /* ── Tech marquee ─────────────────────────────────────────── */
 @keyframes marquee {
   from { transform: translateX(0); }

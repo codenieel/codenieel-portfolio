@@ -216,26 +216,15 @@ export default function About() {
                 }}
               >
                 {/* Photo + bio row */}
-                <div style={{ display: "flex", gap: "20px", alignItems: "flex-start" }}>
+                <div className="about-bio-row">
                   {siteConfig.avatar && (
-                    <div style={{ flexShrink: 0 }}>
-                      <img
-                        src={siteConfig.avatar}
-                        alt={siteConfig.name}
-                        width={200}
-                        height={200}
-                        style={{
-                          width: "160px",
-                          height: "160px",
-                          borderRadius: "10px",
-                          objectFit: "cover",
-                          objectPosition: "top center",
-                          border: "1px solid var(--border)",
-                          display: "block",
-                          flexShrink: 0,
-                        }}
-                      />
-                    </div>
+                    <img
+                      src={siteConfig.avatar}
+                      alt={siteConfig.name}
+                      width={160}
+                      height={160}
+                      className="about-bio-img"
+                    />
                   )}
                   <div style={{ display: "flex", flexDirection: "column", gap: "10px", flex: 1, minWidth: 0 }}>
                     <p
