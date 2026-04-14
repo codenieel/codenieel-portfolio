@@ -10,10 +10,16 @@ export const siteConfig = {
     "Full-Stack Developer specializing in PHP/React web platforms and cross-platform React Native apps — shipping real products used by real people.",
   bio: "I'm a Full-Stack Developer based in the Philippines, contributing to real-world client projects as a freelancer. I work across the full stack — PHP/CodeIgniter backends, MySQL databases, React frontends, and React Native mobile apps.",
   bio2: "I've shipped production platforms across e-commerce, real estate marketplaces, and mobile apps. I care about clean code, solid integrations, and delivering things that actually work in the hands of real users.",
-  email: "daldedaniellus@gmail.com",
+  // Email is split to prevent bot scraping — joined at runtime in components
+  emailUser: "daldedaniellus",
+  emailDomain: "gmail.com",
+  gitlab: "https://gitlab.com/codenieel", // ← update to your actual GitLab username
   github: "https://github.com/codenieel",
   linkedin: "https://linkedin.com/in/codenieel",
   location: "Philippines",
+  // Drop your photo in /public/avatar.jpg and set this to "/avatar.jpg"
+  // Leave as "" to hide the avatar
+  avatar: "",
   // Used to auto-calculate years of experience — update if career start changes
   careerStartDate: "2022-12-01",
 };

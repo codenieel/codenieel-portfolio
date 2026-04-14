@@ -5,10 +5,12 @@ import { Github, Linkedin, Mail, ArrowUpRight, MessageSquare, MapPin } from "luc
 import ScrollReveal from "./ui/ScrollReveal";
 import { siteConfig } from "@/lib/data";
 
+const email = `${siteConfig.emailUser}@${siteConfig.emailDomain}`;
+
 const socialLinks = [
-  { label: "GitHub",   href: siteConfig.github,           icon: Github,   desc: "github.com/codenieel",          color: "#6e7681" },
-  { label: "LinkedIn", href: siteConfig.linkedin,          icon: Linkedin, desc: "linkedin.com/in/codenieel",     color: "#0a66c2" },
-  { label: "Email",    href: `mailto:${siteConfig.email}`, icon: Mail,     desc: siteConfig.email, color: "#7c7fff" },
+  { label: "GitLab",   href: siteConfig.gitlab,            icon: Github,   desc: siteConfig.gitlab.replace("https://", ""),  color: "#fc6d26" },
+  { label: "LinkedIn", href: siteConfig.linkedin,           icon: Linkedin, desc: "linkedin.com/in/codenieel",                color: "#0a66c2" },
+  { label: "Email",    href: `mailto:${email}`,             icon: Mail,     desc: email,                                      color: "#7c7fff" },
 ];
 
 export default function Contact() {
@@ -59,7 +61,7 @@ export default function Contact() {
 
               <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
                 <motion.a
-                  href={`mailto:${siteConfig.email}`}
+                  href={`mailto:${email}`}
                   style={{
                     display: "inline-flex", alignItems: "center", gap: "6px",
                     padding: "10px 20px", borderRadius: "8px",

@@ -145,6 +145,29 @@ export default function Hero() {
           gap: "0",
         }}
       >
+        {/* Avatar */}
+        {siteConfig.avatar && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, delay: 0.05 }}
+            style={{ marginBottom: "20px" }}
+          >
+            <img
+              src={siteConfig.avatar}
+              alt={siteConfig.name}
+              width={80}
+              height={80}
+              style={{
+                width: "80px", height: "80px", borderRadius: "50%",
+                border: "2px solid var(--accent-subtle-border)",
+                objectFit: "cover",
+                boxShadow: "0 0 0 4px var(--accent-subtle)",
+              }}
+            />
+          </motion.div>
+        )}
+
         {/* Available badge */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -305,8 +328,8 @@ export default function Hero() {
           </motion.a>
           {[
             {
-              href: siteConfig.github,
-              label: "GitHub",
+              href: siteConfig.gitlab,
+              label: "GitLab",
               icon: <Github size={13} />,
             },
             {
