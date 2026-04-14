@@ -105,10 +105,10 @@ export default function About() {
           </div>
         </ScrollReveal>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px", alignItems: "start" }} className="md-grid-2col">
+        <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
 
           {/* Bio card */}
-          <ScrollReveal delay={0.08} direction="left">
+          <ScrollReveal delay={0.08}>
             <div style={{
               borderRadius: "10px",
               background: "var(--bg-card)",
@@ -161,7 +161,7 @@ export default function About() {
           </ScrollReveal>
 
           {/* Skills card */}
-          <ScrollReveal delay={0.12} direction="right">
+          <ScrollReveal delay={0.12}>
             <div style={{
               borderRadius: "10px",
               background: "var(--bg-card)",

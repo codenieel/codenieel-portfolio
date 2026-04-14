@@ -348,65 +348,28 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.64 }}
           style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "0",
-            flexWrap: "wrap",
+            display: "grid",
+            gridTemplateColumns: "repeat(3, 1fr)",
             borderRadius: "12px",
             background: "var(--bg-card)",
             border: "1px solid var(--border)",
             overflow: "hidden",
+            width: "100%",
           }}
         >
           {STATS.map(({ icon: Icon, target, suffix, label }, i) => (
-            <div key={label} style={{ display: "flex", alignItems: "center" }}>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  padding: "14px 28px",
-                  gap: "3px",
-                }}
-              >
-                <Icon
-                  size={13}
-                  style={{ color: "var(--accent)", marginBottom: "4px" }}
-                  strokeWidth={2}
-                />
-                <span
-                  style={{
-                    fontSize: "18px",
-                    fontWeight: 800,
-                    letterSpacing: "-0.03em",
-                    color: "var(--text)",
-                    lineHeight: 1,
-                  }}
-                >
-                  <CountUp target={target} suffix={suffix} />
-                </span>
-                <span
-                  style={{
-                    fontSize: "10px",
-                    fontWeight: 500,
-                    color: "var(--text-subtle)",
-                    whiteSpace: "nowrap",
-                  }}
-                >
-                  {label}
-                </span>
-              </div>
-              {i < STATS.length - 1 && (
-                <div
-                  style={{
-                    width: "1px",
-                    height: "40px",
-                    background: "var(--border)",
-                    flexShrink: 0,
-                  }}
-                />
-              )}
+            <div key={label} style={{
+              display: "flex", flexDirection: "column", alignItems: "center",
+              padding: "14px 10px", gap: "3px",
+              borderRight: i < STATS.length - 1 ? "1px solid var(--border)" : "none",
+            }}>
+              <Icon size={13} style={{ color: "var(--accent)", marginBottom: "4px" }} strokeWidth={2} />
+              <span style={{ fontSize: "18px", fontWeight: 800, letterSpacing: "-0.03em", color: "var(--text)", lineHeight: 1 }}>
+                <CountUp target={target} suffix={suffix} />
+              </span>
+              <span style={{ fontSize: "10px", fontWeight: 500, color: "var(--text-subtle)", textAlign: "center", lineHeight: 1.3 }}>
+                {label}
+              </span>
             </div>
           ))}
         </motion.div>

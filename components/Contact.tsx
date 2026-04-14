@@ -8,7 +8,7 @@ import { siteConfig } from "@/lib/data";
 const socialLinks = [
   { label: "GitHub",   href: siteConfig.github,           icon: Github,   desc: "github.com/codenieel",          color: "#6e7681" },
   { label: "LinkedIn", href: siteConfig.linkedin,          icon: Linkedin, desc: "linkedin.com/in/codenieel",     color: "#0a66c2" },
-  { label: "Email",    href: `mailto:${siteConfig.email}`, icon: Mail,     desc: siteConfig.email,                color: "#7c7fff" },
+  { label: "Email",    href: `mailto:${siteConfig.email}`, icon: Mail,     desc: siteConfig.email, color: "#7c7fff" },
 ];
 
 export default function Contact() {
@@ -83,7 +83,7 @@ export default function Contact() {
         </ScrollReveal>
 
         {/* Social link cards */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "10px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "10px" }}>
           {socialLinks.map(({ label, href, icon: Icon, desc, color }, i) => (
             <ScrollReveal key={label} delay={0.06 + i * 0.07}>
               <motion.a
@@ -120,7 +120,7 @@ export default function Contact() {
                   <p style={{ fontSize: "12px", fontWeight: 600, color: "var(--text)", lineHeight: 1, marginBottom: "3px" }}>
                     {label}
                   </p>
-                  <p style={{ fontSize: "10.5px", color: "var(--text-subtle)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", margin: 0 }}>
+                  <p style={{ fontSize: "10.5px", color: "var(--text-subtle)", wordBreak: "break-all", margin: 0, lineHeight: 1.4 }}>
                     {desc}
                   </p>
                 </div>

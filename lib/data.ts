@@ -4,7 +4,7 @@
 
 export const siteConfig = {
   name: "NieelDev",
-  handle: "codenieel",
+  handle: "<codenieel />",
   role: "Full-Stack Developer",
   tagline:
     "Full-Stack Developer specializing in PHP/React web platforms and cross-platform React Native apps — shipping real products used by real people.",
@@ -203,7 +203,7 @@ export const experiences: Experience[] = [
 
 export const freelanceProjects: Experience[] = [
   {
-    role: "Freelance Full-Stack Developer",
+    role: "Full-Stack Developer",
     company: "Tokkatok",
     location: "Remote · Philippines",
     period: "Jan 2026 – Present",
@@ -228,7 +228,7 @@ export const freelanceProjects: Experience[] = [
     ],
   },
   {
-    role: "Freelance Full-Stack Developer",
+    role: "Full-Stack Developer",
     company: "Beauty Buffet Holistica (BBH)",
     location: "Remote · Philippines",
     period: "Dec 2025 – Apr 2026",
