@@ -191,7 +191,7 @@ export default function Hero() {
             fontSize: "11px",
             fontWeight: 700,
             letterSpacing: "0.14em",
-            textTransform: "uppercase",
+            textTransform: "lowercase",
             color: "var(--accent)",
             marginBottom: "10px",
           }}
