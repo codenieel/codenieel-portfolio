@@ -19,7 +19,7 @@ export const siteConfig = {
   location: "Philippines",
   // Drop your photo in /public/avatar.jpg and set this to "/avatar.jpg"
   // Leave as "" to hide the avatar
-  avatar: "",
+  avatar: "/avatar.jpg",
   // Used to auto-calculate years of experience — update if career start changes
   careerStartDate: "2022-12-01",
 };
