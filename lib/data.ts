@@ -17,13 +17,8 @@ export const siteConfig = {
   github: "https://github.com/codenieel",
   linkedin: "https://linkedin.com/in/codenieel",
   location: "Philippines",
-  // Drop your photo in /public/avatar.jpg and set this to "/avatar.jpg"
-  // Leave as "" to hide the avatar
-  avatar: "/avatar.JPG",
-  // Drop your resume PDF in /public/ and set this to "/resume.pdf"
-  // Leave as "" to hide the resume button
+  avatar: "/avatar.webp",
   resume: "/CV-DALDE.pdf",
-  // Used to auto-calculate years of experience — update if career start changes
   careerStartDate: "2022-12-01",
 };
 
