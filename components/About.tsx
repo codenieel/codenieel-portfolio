@@ -82,7 +82,7 @@ const categoryIcon: Record<string, ReactNode> = {
   tools: <Wrench size={11} strokeWidth={2.5} />,
 };
 
-const { years } = getStats();
+const { years, productionProjects } = getStats();
 
 const highlights = [
   {
@@ -91,7 +91,12 @@ const highlights = [
     target: years,
     suffix: "+",
   },
-  { value: "PHP", label: "Primary Backend Lang", target: null, suffix: "" },
+  {
+    value: `${productionProjects}`,
+    label: "Projects Shipped",
+    target: productionProjects,
+    suffix: "",
+  },
   { value: "RN", label: "React Native Expert", target: null, suffix: "" },
   { value: "PH", label: "Based in Philippines", target: null, suffix: "" },
 ];

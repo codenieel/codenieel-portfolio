@@ -49,6 +49,7 @@ export const skills: Skill[] = [
   // Tools
   { name: "Git", category: "tools" },
   { name: "GitLab CI/CD", category: "tools" },
+  { name: "Docker", category: "tools" },
   { name: "Firebase", category: "tools" },
   { name: "Figma", category: "tools" },
 ];
