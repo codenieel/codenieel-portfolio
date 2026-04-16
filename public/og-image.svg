@@ -12,11 +12,12 @@
   <rect width="1200" height="630" fill="url(#dotGrid)" />
   <ellipse cx="200" cy="315" rx="300" ry="200" fill="#7c7fff" opacity="0.04" />
   <ellipse cx="950" cy="315" rx="250" ry="200" fill="#7c7fff" opacity="0.05" />
-  <text x="90" y="260" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="96" font-weight="800" fill="#eeeef8" letter-spacing="-2">NieelDev</text>
-  <text x="94" y="330" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="34" font-weight="600" fill="#7c7fff" letter-spacing="0.5">Full-Stack Developer</text>
-  <text x="96" y="385" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="22" font-weight="400" fill="#8080a0" letter-spacing="1">PHP · React · React Native · TypeScript</text>
-  <line x1="90" y1="420" x2="440" y2="420" stroke="#7c7fff" stroke-width="2" opacity="0.3" />
-  <text x="90" y="570" font-family="'Courier New', monospace" font-size="24" font-weight="500" fill="#7c7fff" opacity="0.85" letter-spacing="1">codenieel.dev</text>
+  <text x="90" y="240" font-family="'Courier New', monospace" font-size="28" font-weight="700" fill="#7c7fff" letter-spacing="1">&lt;codenieel /&gt;</text>
+  <text x="90" y="330" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="80" font-weight="800" fill="#eeeef8" letter-spacing="-2">Daniel Dalde</text>
+  <text x="94" y="390" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="34" font-weight="600" fill="#7c7fff" letter-spacing="0.5">Full-Stack Developer</text>
+  <text x="96" y="440" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="22" font-weight="400" fill="#8080a0" letter-spacing="1">PHP · React · React Native · TypeScript</text>
+  <line x1="90" y1="475" x2="440" y2="475" stroke="#7c7fff" stroke-width="2" opacity="0.3" />
+  <text x="90" y="570" font-family="'Courier New', monospace" font-size="24" font-weight="500" fill="#7c7fff" opacity="0.85" letter-spacing="1">codenieel-portfolio.vercel.app</text>
   <rect x="800" y="165" width="280" height="280" rx="42" fill="#7c7fff" opacity="0.08" />
   <rect x="800" y="165" width="280" height="280" rx="42" fill="none" stroke="#7c7fff" stroke-width="1.5" opacity="0.25" />
   <text x="840" y="338" font-family="'Courier New', monospace" font-size="90" font-weight="700" fill="url(#logoGradient)" opacity="0.95" letter-spacing="-4">&lt;/&gt;</text>

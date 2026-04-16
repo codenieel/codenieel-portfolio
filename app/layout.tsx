@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://codenieel.dev"),
+  metadataBase: new URL("https://codenieel-portfolio.vercel.app"),
   icons: {
     icon: "/logo.svg",
     shortcut: "/logo.svg",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://codenieel.dev",
+    url: "https://codenieel-portfolio.vercel.app",
     title: "codenieel | Full-Stack Developer",
     description:
       "Portfolio of Daniel Lusares Dalde (codenieel) — Full-Stack Developer building performant web applications and cross-platform mobile apps.",
