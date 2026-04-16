@@ -13,7 +13,7 @@ const LINES = [
   { prompt: "$", cmd: "cat skills.txt",      delay: 2600 },
   { prompt: ">", cmd: "PHP · React · React Native · TypeScript · MySQL", delay: 3200, output: true },
   { prompt: "$", cmd: "ls projects/",        delay: 4000 },
-  { prompt: ">", cmd: "clear-ballistics/  tokkatok/  tokkatok-apps/  bbh/", delay: 4600, output: true },
+  { prompt: ">", cmd: "clear-ballistics/  humimic/  tokkatok/  tokkatok-apps/  bbh/", delay: 4600, output: true },
   { prompt: "$", cmd: "echo $STATUS",        delay: 5400 },
   { prompt: ">", cmd: "✅ Available for new projects", delay: 6000, output: true },
   { prompt: "$", cmd: "_",                   delay: 6800, cursor: true },

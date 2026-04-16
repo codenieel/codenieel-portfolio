@@ -17,6 +17,7 @@ const TECHS = [
   { name: "jQuery",        color: "#0769ad" },
   { name: "Nativewind",    color: "#38bdf8" },
   { name: "GitLab CI/CD",  color: "#fc6d26" },
+  { name: "Docker",        color: "#2496ed" },
   { name: "REST APIs",     color: "#7c7fff" },
   { name: "Figma",         color: "#f24e1e" },
 ];
