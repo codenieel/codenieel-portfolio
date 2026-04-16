@@ -149,18 +149,42 @@ export async function GET() {
             }}
           />
 
-          {/* URL */}
+          {/* URL + CTA row */}
           <div
             style={{
-              fontSize: "22px",
-              fontWeight: 500,
-              color: "#9d9fff",
-              opacity: 0.8,
-              letterSpacing: "0.5px",
               display: "flex",
+              alignItems: "center",
+              gap: "20px",
             }}
           >
-            codenieel-portfolio.vercel.app
+            <div
+              style={{
+                fontSize: "20px",
+                fontWeight: 500,
+                color: "#9d9fff",
+                opacity: 0.7,
+                letterSpacing: "0.5px",
+                display: "flex",
+              }}
+            >
+              codenieel-portfolio.vercel.app
+            </div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "6px",
+                background: "#6366f1",
+                borderRadius: "8px",
+                padding: "8px 18px",
+                fontSize: "18px",
+                fontWeight: 700,
+                color: "#ffffff",
+                letterSpacing: "0.3px",
+              }}
+            >
+              View Portfolio →
+            </div>
           </div>
         </div>
 

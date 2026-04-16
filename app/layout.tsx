@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     shortcut: "/logo.svg",
     apple: "/logo.svg",
   },
-  title: "codenieel | Full-Stack Developer",
+  title: "codenieel | Full-Stack Web & Mobile Developer",
   description:
     "Portfolio of Daniel Lusares Dalde (codenieel) — Full-Stack Developer building performant web applications and cross-platform mobile apps with React, React Native, PHP, and more.",
   keywords: [
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://codenieel-portfolio.vercel.app",
-    title: "codenieel | Full-Stack Developer",
+    title: "codenieel | Full-Stack Web & Mobile Developer",
     description:
       "Portfolio of Daniel Lusares Dalde (codenieel) — Full-Stack Developer building performant web applications and cross-platform mobile apps.",
     siteName: "codenieel",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "codenieel | Full-Stack Developer",
+    title: "codenieel | Full-Stack Web & Mobile Developer",
     description: "Full-Stack Developer — Web & Mobile.",
     images: ["/og"],
   },
