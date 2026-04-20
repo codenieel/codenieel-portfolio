@@ -220,8 +220,7 @@ export const freelanceProjects: Experience[] = [
     role: "Full-Stack Developer",
     company: "Tokkatok",
     location: "Remote · Philippines",
-    period: "Jan 2026 – Present",
-    current: true,
+    period: "Jan 2026 – Apr 2026",
     bullets: [
       {
         text: "Built the Tokkatok web marketplace — a full-stack real estate platform for the Philippines with role-based portals (admin, agent, owner, customer), subscription tiers, and an AdminLTE admin panel",
