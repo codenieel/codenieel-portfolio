@@ -44,13 +44,14 @@ export const skills: Skill[] = [
   // Backend
   { name: "CodeIgniter", category: "backend" },
   { name: "MySQL", category: "backend" },
+  { name: "Supabase", category: "backend" },
+  { name: "Firebase", category: "backend" },
   { name: "REST APIs", category: "backend" },
   { name: "AWS S3", category: "backend" },
   // Tools
   { name: "Git", category: "tools" },
   { name: "GitLab CI/CD", category: "tools" },
   { name: "Docker", category: "tools" },
-  { name: "Firebase", category: "tools" },
   { name: "Figma", category: "tools" },
 ];
 

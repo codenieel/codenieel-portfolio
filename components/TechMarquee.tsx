@@ -11,6 +11,7 @@ const TECHS = [
   { name: "Expo",          color: "#ffffff" },
   { name: "Tailwind CSS",  color: "#38bdf8" },
   { name: "Firebase",      color: "#ffca28" },
+  { name: "Supabase",      color: "#3ecf8e" },
   { name: "AWS S3",        color: "#ff9900" },
   { name: "Git",           color: "#f54d27" },
   { name: "Bootstrap",     color: "#7952b3" },
