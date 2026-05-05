@@ -60,6 +60,7 @@ export type Project = {
   tech: string[];
   github?: string;
   live?: string;
+  demoUrl?: string;
   image?: string;
   featured?: boolean;
 };
@@ -122,6 +123,21 @@ export const projects: Project[] = [
       "Firebase",
       "React Query",
     ],
+    featured: true,
+  },
+  {
+    title: "SeaTrack PH",
+    description:
+      "Mobile app for Filipino seafarers to track maritime certificate expiry dates and receive smart renewal reminders. Features a certificate dashboard with alert levels, renewal guides, accredited training center finder with location sorting, and push notifications via Firebase.",
+    tech: [
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "Supabase",
+      "Firebase",
+      "Expo Router",
+    ],
+    github: "https://gitlab.com/codenieel/seatrackph",
     featured: true,
   },
   {
