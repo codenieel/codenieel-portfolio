@@ -56,11 +56,11 @@ function AnimatedRole({ roles }: { roles: string[] }) {
     <AnimatePresence mode="wait">
       <motion.span
         key={roles[index]}
-        initial={{ opacity: 0, y: 10 }}
+        initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -10 }}
-        transition={{ duration: 0.3 }}
-        style={{ display: "inline-block" }}
+        exit={{ opacity: 0, y: -12 }}
+        transition={{ duration: 0.22, ease: "easeInOut" }}
+        style={{ display: "inline-block", whiteSpace: "nowrap" }}
       >
         {roles[index]}
       </motion.span>
@@ -202,8 +202,9 @@ export default function Hero() {
             background: "var(--accent-subtle)",
             border: "1px solid var(--accent-subtle-border)",
             fontSize: "13px", fontWeight: 600, color: "var(--accent)",
-            marginBottom: "20px", minHeight: "32px",
+            marginBottom: "20px", height: "32px",
             boxShadow: "0 0 24px -8px var(--accent-glow)",
+            overflow: "hidden",
           }}
         >
           <AnimatedRole roles={ROLES} />
