@@ -23,7 +23,6 @@ const TECHS = [
   { name: "Figma",         color: "#f24e1e" },
 ];
 
-// Duplicate for seamless loop
 const ITEMS = [...TECHS, ...TECHS];
 
 export default function TechMarquee() {
@@ -33,18 +32,18 @@ export default function TechMarquee() {
       borderBottom: "1px solid var(--border)",
       background: "var(--bg-card)",
       overflow: "hidden",
-      padding: "14px 0",
+      padding: "16px 0",
       position: "relative",
     }}>
       {/* Fade edges */}
       <div style={{
-        position: "absolute", left: 0, top: 0, bottom: 0, width: "80px", zIndex: 2,
-        background: "linear-gradient(90deg, var(--bg-card), transparent)",
+        position: "absolute", left: 0, top: 0, bottom: 0, width: "100px", zIndex: 2,
+        background: "linear-gradient(90deg, var(--bg-card) 30%, transparent)",
         pointerEvents: "none",
       }} />
       <div style={{
-        position: "absolute", right: 0, top: 0, bottom: 0, width: "80px", zIndex: 2,
-        background: "linear-gradient(270deg, var(--bg-card), transparent)",
+        position: "absolute", right: 0, top: 0, bottom: 0, width: "100px", zIndex: 2,
+        background: "linear-gradient(270deg, var(--bg-card) 30%, transparent)",
         pointerEvents: "none",
       }} />
 

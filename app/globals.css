@@ -2,38 +2,40 @@
 
 /* ── Theme tokens ─────────────────────────────────────────── */
 :root {
-  --bg: #f8f8fc;
-  --bg-section: #f2f2f8;
+  --bg: #f6f6fb;
+  --bg-section: #f0f0f8;
   --bg-card: #ffffff;
-  --bg-card-hover: #f5f5fa;
-  --border: #e2e2ea;
-  --border-strong: #c4c4d4;
-  --text: #0d0d14;
-  --text-muted: #717185;
-  --text-subtle: #a0a0b4;
+  --bg-card-hover: #f5f5fc;
+  --border: #e0e0ef;
+  --border-strong: #c0c0d8;
+  --text: #0a0a14;
+  --text-muted: #6060808;
+  --text-subtle: #9898b8;
   --accent: #5b5ef5;
   --accent-hover: #4547e0;
   --accent-subtle: #eeeeff;
   --accent-subtle-border: #c7c7ff;
-  --nav-bg: rgba(248, 248, 252, 0.9);
-  --section-py: 56px;
+  --accent-glow: rgba(91, 94, 245, 0.25);
+  --nav-bg: rgba(246, 246, 251, 0.85);
+  --section-py: 72px;
 }
 
 .dark {
-  --bg: #09090f;
-  --bg-section: #0e0e18;
-  --bg-card: #111119;
-  --bg-card-hover: #1a1a26;
-  --border: #1e1e2c;
-  --border-strong: #32324a;
-  --text: #eeeef8;
-  --text-muted: #8080a0;
-  --text-subtle: #44445a;
+  --bg: #07070f;
+  --bg-section: #0b0b16;
+  --bg-card: #0f0f1c;
+  --bg-card-hover: #16162a;
+  --border: #1c1c30;
+  --border-strong: #2c2c48;
+  --text: #f0f0ff;
+  --text-muted: #7878a0;
+  --text-subtle: #3c3c5a;
   --accent: #7c7fff;
   --accent-hover: #9d9fff;
-  --accent-subtle: #14143a;
-  --accent-subtle-border: #28285a;
-  --nav-bg: rgba(9, 9, 15, 0.9);
+  --accent-subtle: #10102e;
+  --accent-subtle-border: #22224a;
+  --accent-glow: rgba(124, 127, 255, 0.2);
+  --nav-bg: rgba(7, 7, 15, 0.85);
 }
 
 /* ── Base ─────────────────────────────────────────────────── */
@@ -42,6 +44,7 @@
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -62,12 +65,11 @@ body {
 /* ── Layout ───────────────────────────────────────────────── */
 .section-container {
   width: 100%;
-  max-width: 1020px;
+  max-width: 1060px;
   margin-inline: auto;
-  padding-inline: 20px;
+  padding-inline: 24px;
 }
 
-/* Every content section gets the same vertical rhythm */
 .section {
   padding-top: var(--section-py);
   padding-bottom: var(--section-py);
@@ -84,66 +86,66 @@ body {
   gap: 8px;
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 6px;
-}
-.label-tag::before {
-  content: "";
-  display: block;
-  width: 14px;
-  height: 2px;
-  border-radius: 2px;
-  background: var(--accent);
-  flex-shrink: 0;
+  margin-bottom: 8px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--accent-subtle);
+  border: 1px solid var(--accent-subtle-border);
 }
 
 /* ── Section heading ──────────────────────────────────────── */
 .section-title {
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.3;
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
   color: var(--text);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .section-subtitle {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-muted);
-  line-height: 1.65;
-  max-width: 480px;
+  line-height: 1.7;
+  max-width: 500px;
 }
 
 .section-head {
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
 
 /* ── Skill chip ───────────────────────────────────────────── */
 .skill-chip {
   display: inline-flex;
   align-items: center;
-  padding: 4px 10px;
-  border-radius: 5px;
+  padding: 5px 12px;
+  border-radius: 6px;
   font-size: 12px;
   font-weight: 500;
   line-height: 1;
   background: var(--bg-card);
   border: 1px solid var(--border);
   color: var(--text-muted);
-  transition: border-color 0.12s, color 0.12s;
+  transition: border-color 0.15s, color 0.15s, background 0.15s, box-shadow 0.15s;
   cursor: default;
 }
 .dark .skill-chip { background: var(--bg-card-hover); }
-.skill-chip:hover { border-color: var(--accent-subtle-border); color: var(--accent); }
+.skill-chip:hover {
+  border-color: var(--accent-subtle-border);
+  color: var(--accent);
+  background: var(--accent-subtle);
+  box-shadow: 0 0 12px -4px var(--accent-glow);
+}
 
 /* ── Tech badge ───────────────────────────────────────────── */
 .tech-badge {
   display: inline-flex;
   align-items: center;
-  padding: 2px 7px;
-  border-radius: 4px;
+  padding: 3px 8px;
+  border-radius: 5px;
   font-size: 10.5px;
   font-weight: 600;
   letter-spacing: 0.01em;
@@ -153,7 +155,7 @@ body {
   white-space: nowrap;
 }
 
-/* ── Divider line ─────────────────────────────────────────── */
+/* ── Divider ──────────────────────────────────────────────── */
 .divider {
   border: none;
   border-top: 1px solid var(--border);
@@ -173,29 +175,30 @@ body {
 .about-bio-row {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
   align-items: center;
 }
 .about-bio-row .about-bio-img {
-  width: 140px;
-  height: 140px;
-  border-radius: 10px;
+  width: 130px;
+  height: 130px;
+  border-radius: 12px;
   object-fit: cover;
   object-position: top center;
   border: 1px solid var(--border);
   display: block;
   flex-shrink: 0;
+  box-shadow: 0 0 0 4px var(--accent-subtle), 0 0 24px -8px var(--accent-glow);
 }
 
 @media (min-width: 600px) {
   .about-bio-row {
     flex-direction: row;
     align-items: flex-start;
-    gap: 20px;
+    gap: 24px;
   }
   .about-bio-row .about-bio-img {
-    width: 160px;
-    height: 160px;
+    width: 150px;
+    height: 150px;
   }
 }
 
@@ -208,8 +211,7 @@ body {
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee 30s linear infinite;
-  gap: 0;
+  animation: marquee 35s linear infinite;
 }
 
 .marquee-track:hover {
@@ -219,15 +221,15 @@ body {
 .marquee-item {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 4px 18px;
+  gap: 7px;
+  padding: 4px 22px;
   font-size: 12px;
   font-weight: 600;
   color: var(--text-muted);
   white-space: nowrap;
   border-right: 1px solid var(--border);
   font-family: monospace;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   transition: color 0.15s;
   cursor: default;
 }
@@ -237,19 +239,45 @@ body {
 }
 
 .marquee-dot {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: var(--dot-color, var(--accent));
   flex-shrink: 0;
-  opacity: 0.8;
+  opacity: 0.85;
+  box-shadow: 0 0 6px var(--dot-color, var(--accent));
 }
 
 /* ── Hero orb ─────────────────────────────────────────────── */
 .hero-orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(100px);
+  filter: blur(120px);
   pointer-events: none;
   z-index: 0;
+}
+
+/* ── Glow card ─────────────────────────────────────────────── */
+.glow-card {
+  position: relative;
+  border-radius: 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.glow-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 0 40px -12px var(--accent-glow);
+}
+
+/* ── Noise overlay (dark only) ─────────────────────────────── */
+.dark .noise-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+  border-radius: inherit;
 }

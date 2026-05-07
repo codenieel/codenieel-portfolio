@@ -16,10 +16,7 @@ export default function Navbar() {
     let ticking = false;
     const handleScroll = () => {
       if (!ticking) {
-        requestAnimationFrame(() => {
-          setScrolled(window.scrollY > 16);
-          ticking = false;
-        });
+        requestAnimationFrame(() => { setScrolled(window.scrollY > 20); ticking = false; });
         ticking = true;
       }
     };
@@ -36,8 +33,6 @@ export default function Navbar() {
       const o = new IntersectionObserver(([e]) => { if (e.isIntersecting) setActive(`#${id}`); }, { rootMargin: "-40% 0px -55% 0px" });
       o.observe(el); obs.push(o);
     });
-
-    // When scrolled to the bottom, highlight the last nav item (Contact)
     let ticking2 = false;
     const handleScrollBottom = () => {
       if (!ticking2) {
@@ -50,64 +45,77 @@ export default function Navbar() {
       }
     };
     window.addEventListener("scroll", handleScrollBottom, { passive: true });
-
-    return () => {
-      obs.forEach((o) => o.disconnect());
-      window.removeEventListener("scroll", handleScrollBottom);
-    };
+    return () => { obs.forEach((o) => o.disconnect()); window.removeEventListener("scroll", handleScrollBottom); };
   }, []);
 
   const handleLink = (href: string) => { setActive(href); setMobileOpen(false); };
 
   return (
-    <header
-      style={{
-        position: "fixed", top: 0, left: 0, right: 0, zIndex: 50,
-        background: scrolled ? "var(--nav-bg)" : "transparent",
-        backdropFilter: scrolled ? "blur(10px)" : "none",
-        borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent",
-        transition: "background 0.2s, border-color 0.2s, backdrop-filter 0.2s",
-      }}
-    >
+    <header style={{
+      position: "fixed", top: 0, left: 0, right: 0, zIndex: 50,
+      background: scrolled ? "var(--nav-bg)" : "transparent",
+      backdropFilter: scrolled ? "blur(16px) saturate(1.6)" : "none",
+      WebkitBackdropFilter: scrolled ? "blur(16px) saturate(1.6)" : "none",
+      borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent",
+      transition: "background 0.25s, border-color 0.25s",
+    }}>
       <nav
         className="section-container"
-        style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "52px" }}
+        style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "56px" }}
         aria-label="Main navigation"
       >
         {/* Logo */}
         <a
           href="#hero"
           onClick={() => handleLink("#hero")}
-          style={{ display: "flex", alignItems: "center", gap: "8px", textDecoration: "none" }}
+          style={{ display: "flex", alignItems: "center", gap: "9px", textDecoration: "none" }}
         >
-          <Image src="/logo.svg" alt="codenieel logo" width={28} height={28} style={{ display: "block", borderRadius: "7px" }} />
-          <span style={{ fontFamily: "monospace", fontSize: "13px", fontWeight: 700, color: "var(--accent)", letterSpacing: "-0.02em" }}>
+          <Image
+            src="/logo.svg" alt="codenieel logo" width={28} height={28}
+            style={{ display: "block", borderRadius: "8px", boxShadow: "0 0 12px -2px var(--accent-glow)" }}
+          />
+          <span style={{
+            fontFamily: "monospace", fontSize: "13px", fontWeight: 700,
+            color: "var(--accent)", letterSpacing: "-0.02em",
+          }}>
             {"<codenieel />"}
           </span>
         </a>
 
         {/* Desktop links */}
-        <ul style={{ alignItems: "center", gap: "24px", listStyle: "none", margin: 0, padding: 0 }} className="nav-desktop">
+        <ul style={{ alignItems: "center", gap: "2px", listStyle: "none", margin: 0, padding: 0 }} className="nav-desktop">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
                 onClick={() => handleLink(link.href)}
                 style={{
-                  position: "relative", display: "block", padding: "4px 0",
+                  position: "relative", display: "block",
+                  padding: "6px 14px", borderRadius: "7px",
                   fontSize: "13px", fontWeight: 500, textDecoration: "none",
-                  color: active === link.href ? "var(--accent)" : "var(--text-muted)",
+                  color: active === link.href ? "var(--text)" : "var(--text-muted)",
                   transition: "color 0.15s",
                 }}
+                onMouseEnter={(e) => {
+                  if (active !== link.href) (e.currentTarget as HTMLElement).style.color = "var(--text)";
+                }}
+                onMouseLeave={(e) => {
+                  if (active !== link.href) (e.currentTarget as HTMLElement).style.color = "var(--text-muted)";
+                }}
               >
-                {link.label}
                 {active === link.href && (
                   <motion.span
-                    layoutId="nav-underline"
-                    style={{ position: "absolute", bottom: "-1px", left: 0, right: 0, height: "2px", borderRadius: "2px", background: "var(--accent)", display: "block" }}
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    layoutId="nav-pill"
+                    style={{
+                      position: "absolute", inset: 0, borderRadius: "7px",
+                      background: "var(--bg-card-hover)",
+                      border: "1px solid var(--border)",
+                      zIndex: -1,
+                    }}
+                    transition={{ type: "spring", stiffness: 380, damping: 34 }}
                   />
                 )}
+                {link.label}
               </a>
             </li>
           ))}
@@ -118,11 +126,13 @@ export default function Navbar() {
           <motion.button
             className="nav-mobile-btn"
             onClick={() => setMobileOpen((v) => !v)}
-            whileTap={{ scale: 0.93 }}
+            whileTap={{ scale: 0.9 }}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             style={{
-              width: "32px", height: "32px", display: "flex", alignItems: "center", justifyContent: "center",
-              borderRadius: "7px", background: "var(--bg-card)", border: "1px solid var(--border)", color: "var(--text-muted)", cursor: "pointer",
+              width: "34px", height: "34px", display: "flex",
+              alignItems: "center", justifyContent: "center",
+              borderRadius: "8px", background: "var(--bg-card)",
+              border: "1px solid var(--border)", color: "var(--text-muted)", cursor: "pointer",
             }}
           >
             {mobileOpen ? <X size={14} /> : <Menu size={14} />}
@@ -138,17 +148,23 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2 }}
-            style={{ background: "var(--nav-bg)", backdropFilter: "blur(10px)", borderBottom: "1px solid var(--border)", overflow: "hidden" }}
+            transition={{ duration: 0.22 }}
+            style={{
+              background: "var(--nav-bg)",
+              backdropFilter: "blur(16px)",
+              WebkitBackdropFilter: "blur(16px)",
+              borderBottom: "1px solid var(--border)",
+              overflow: "hidden",
+            }}
           >
-            <ul className="section-container" style={{ padding: "10px 20px", display: "flex", flexDirection: "column", gap: "2px", listStyle: "none" }}>
+            <ul className="section-container" style={{ padding: "8px 24px 12px", display: "flex", flexDirection: "column", gap: "2px", listStyle: "none" }}>
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
                     onClick={() => handleLink(link.href)}
                     style={{
-                      display: "block", padding: "8px 10px", borderRadius: "6px", textDecoration: "none",
+                      display: "block", padding: "9px 12px", borderRadius: "7px", textDecoration: "none",
                       fontSize: "13px", fontWeight: 500,
                       color: active === link.href ? "var(--accent)" : "var(--text-muted)",
                       background: active === link.href ? "var(--accent-subtle)" : "transparent",
