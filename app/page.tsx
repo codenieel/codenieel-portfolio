@@ -9,6 +9,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import ScrollProgress from "@/components/ui/ScrollProgress";
+import ChatWidget from "@/components/ChatWidget";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
       <Footer />
       <ScrollToTop />
       <ScrollProgress />
+      <ChatWidget />
     </>
   );
 }
