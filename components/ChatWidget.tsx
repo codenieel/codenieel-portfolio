@@ -355,20 +355,34 @@ export default function ChatWidget() {
           }
         </AnimatePresence>
 
-        {/* Pulse ring */}
+        {/* Ripple rings — pure CSS to avoid Framer reset flicker */}
         {!open && (
-          <motion.span
-            animate={{ scale: [1, 1.6], opacity: [0.4, 0] }}
-            transition={{ repeat: Infinity, duration: 1.8, ease: "easeOut" }}
-            style={{
+          <>
+            <span style={{
               position: "absolute", inset: 0, borderRadius: "50%",
               border: "2px solid var(--accent)", pointerEvents: "none",
-            }}
-          />
+              animation: "ripple 2.4s cubic-bezier(0.2, 0.6, 0.4, 1) infinite",
+              willChange: "transform, opacity",
+            }} />
+            <span style={{
+              position: "absolute", inset: 0, borderRadius: "50%",
+              border: "2px solid var(--accent)", pointerEvents: "none",
+              animation: "ripple 2.4s cubic-bezier(0.2, 0.6, 0.4, 1) infinite",
+              animationDelay: "0.8s",
+              willChange: "transform, opacity",
+            }} />
+          </>
         )}
       </motion.button>
 
-      <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+      <style>{`
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes ripple {
+          0%   { transform: scale(1);    opacity: 0.5; }
+          70%  { transform: scale(1.85); opacity: 0;   }
+          100% { transform: scale(1.85); opacity: 0;   }
+        }
+      `}</style>
     </>
   );
 }
