@@ -144,8 +144,8 @@ export const projects: Project[] = [
   {
     title: "Beauty Buffet Holistica (BBH)",
     description:
-      "Multi-variant e-commerce web platform with product browsing, cart, checkout, blog, and user account management. Built with CodeIgniter and Bootstrap with multiple homepage design variations.",
-    tech: ["PHP", "CodeIgniter", "MySQL", "Bootstrap", "jQuery"],
+      "Full-stack MLM e-commerce and membership platform for a premium beauty brand. Features a tiered membership system (Customer, Prestige, Elite, Stockist), multi-level commission engine, downline genealogy tracking, inventory management, and dual portals for members and admins. Supports USD/CAD multi-currency, PayPal and manual payment flows, and a background email queue system.",
+    tech: ["PHP", "CodeIgniter", "MySQL", "JavaScript", "jQuery"],
     featured: false,
   },
 ];
@@ -264,15 +264,15 @@ export const freelanceProjects: Experience[] = [
     period: "Dec 2025 – Apr 2026",
     bullets: [
       {
-        text: "Built the BBH storefront — a multi-variant e-commerce web platform with product browsing, cart, and checkout",
+        text: "Built a full-stack MLM e-commerce and membership platform with tiered memberships (Customer, Prestige, Elite, Stockist), a multi-level commission engine, and downline genealogy tracking",
         platform: "web",
       },
       {
-        text: "Developed a custom admin panel for product, order, and content management with multiple homepage design variations",
+        text: "Developed dual portals — a member dashboard for commission tracking, wallet management, and rank progression, and an admin panel for order, membership, and commission management",
         platform: "web",
       },
       {
-        text: "Built on CodeIgniter and Bootstrap with jQuery-driven AJAX interactions throughout",
+        text: "Implemented USD/CAD multi-currency support, PayPal and manual payment flows, inventory management, and a background email queue system",
         platform: "web",
       },
     ],
