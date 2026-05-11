@@ -45,6 +45,8 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Prevent white flash before theme class is applied — default matches dark theme */
+  background-color: #07070f;
 }
 
 body {
@@ -53,7 +55,6 @@ body {
   font-family: var(--font-inter), system-ui, sans-serif;
   font-size: 14px;
   line-height: 1.6;
-  transition: background-color 0.2s, color 0.2s;
 }
 
 ::selection { background-color: var(--accent); color: #fff; }

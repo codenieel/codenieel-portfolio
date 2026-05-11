@@ -290,20 +290,43 @@ export async function POST(req: Request) {
   }
 
   try {
-    const response = await client.messages.create({
+    const stream = await client.messages.create({
       model: "claude-haiku-4-5-20251001",
       max_tokens: 512,
       system: SYSTEM_PROMPT,
       messages: trimmed,
+      stream: true,
     });
 
-    const text =
-      response.content[0].type === "text" ? response.content[0].text : "";
-    return Response.json({ text }, { headers });
+    const readable = new ReadableStream({
+      async start(controller) {
+        const enc = new TextEncoder();
+        try {
+          for await (const chunk of stream) {
+            if (
+              chunk.type === "content_block_delta" &&
+              chunk.delta.type === "text_delta"
+            ) {
+              controller.enqueue(enc.encode(chunk.delta.text));
+            }
+          }
+        } finally {
+          controller.close();
+        }
+      },
+    });
+
+    return new Response(readable, {
+      headers: {
+        ...headers,
+        "Content-Type": "text/plain; charset=utf-8",
+        "Transfer-Encoding": "chunked",
+        "X-Content-Type-Options": "nosniff",
+      },
+    });
   } catch (err: unknown) {
     console.error("Chat API error:", err);
 
-    // Billing not active or API key invalid — return 503 so the widget shows a friendly fallback
     if (
       err instanceof Error &&
       (err.message.includes("billing") ||

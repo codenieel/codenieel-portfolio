@@ -119,26 +119,29 @@ function MessageBubble({ msg }: { msg: Message }) {
 
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
+  const [everOpened, setEverOpened] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false); // true during initial fetch (before first token)
+  const [streaming, setStreaming] = useState(false); // true while tokens are arriving
   const [showSuggestions, setShowSuggestions] = useState(true);
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (open) {
+      setEverOpened(true);
       setTimeout(() => inputRef.current?.focus(), 300);
     }
   }, [open]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages, loading]);
+  }, [messages]);
 
   const send = async (text: string) => {
     const trimmed = text.trim();
-    if (!trimmed || loading) return;
+    if (!trimmed || loading || streaming) return;
 
     const userMsg: Message = { role: "user", content: trimmed };
     const next = [...messages, userMsg];
@@ -153,16 +156,16 @@ export default function ChatWidget() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: next }),
       });
-      const data = await res.json();
+
       if (res.status === 429) {
+        const data = await res.json();
         setMessages((prev) => [
           ...prev,
-          {
-            role: "assistant",
-            content: data.error || "Too many messages — please wait a moment.",
-          },
+          { role: "assistant", content: data.error || "Too many messages — please wait a moment." },
         ]);
-      } else if (res.status === 503) {
+        return;
+      }
+      if (res.status === 503) {
         setMessages((prev) => [
           ...prev,
           {
@@ -171,23 +174,42 @@ export default function ChatWidget() {
               "The AI assistant isn't available right now. In the meantime, feel free to explore Daniel's projects above or reach out directly at __email__daldedaniellus@gmail.com__email__",
           },
         ]);
-      } else if (!res.ok) {
-        setMessages((prev) => [
-          ...prev,
-          {
-            role: "assistant",
-            content: data.error || "Something went wrong. Please try again.",
-          },
-        ]);
-      } else {
-        setMessages((prev) => [
-          ...prev,
-          {
-            role: "assistant",
-            content: data.text || "Sorry, something went wrong.",
-          },
-        ]);
+        return;
       }
+      if (!res.ok || !res.body) {
+        const data = await res.json().catch(() => ({}));
+        setMessages((prev) => [
+          ...prev,
+          { role: "assistant", content: (data as { error?: string }).error || "Something went wrong. Please try again." },
+        ]);
+        return;
+      }
+
+      // Stream tokens into the assistant message in real time
+      const assistantIndex = next.length;
+      setMessages((prev) => [...prev, { role: "assistant", content: "" }]);
+      setLoading(false);
+      setStreaming(true);
+
+      const reader = res.body.getReader();
+      const dec = new TextDecoder();
+      let done = false;
+      while (!done) {
+        const { value, done: streamDone } = await reader.read();
+        done = streamDone;
+        if (value) {
+          const chunk = dec.decode(value, { stream: true });
+          setMessages((prev) => {
+            const updated = [...prev];
+            updated[assistantIndex] = {
+              role: "assistant",
+              content: updated[assistantIndex].content + chunk,
+            };
+            return updated;
+          });
+        }
+      }
+      setStreaming(false);
     } catch {
       setMessages((prev) => [
         ...prev,
@@ -195,6 +217,7 @@ export default function ChatWidget() {
       ]);
     } finally {
       setLoading(false);
+      setStreaming(false);
     }
   };
 
@@ -207,9 +230,9 @@ export default function ChatWidget() {
 
   return (
     <>
-      {/* Chat panel */}
+      {/* Chat panel — only mounted after first open to avoid upfront render cost */}
       <AnimatePresence>
-        {open && (
+        {everOpened && open && (
           <motion.div
             initial={{ opacity: 0, y: 16, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -452,7 +475,7 @@ export default function ChatWidget() {
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder="Ask something..."
-                disabled={loading}
+                disabled={loading || streaming}
                 style={{
                   flex: 1,
                   padding: "8px 12px",
@@ -474,7 +497,7 @@ export default function ChatWidget() {
               />
               <motion.button
                 onClick={() => send(input)}
-                disabled={!input.trim() || loading}
+                disabled={!input.trim() || loading || streaming}
                 whileTap={{ scale: 0.92 }}
                 style={{
                   width: "34px",
@@ -482,20 +505,20 @@ export default function ChatWidget() {
                   borderRadius: "8px",
                   flexShrink: 0,
                   background:
-                    input.trim() && !loading
+                    input.trim() && !loading && !streaming
                       ? "var(--accent)"
                       : "var(--bg-card)",
                   border: "1px solid var(--border)",
                   color:
-                    input.trim() && !loading ? "#fff" : "var(--text-subtle)",
-                  cursor: input.trim() && !loading ? "pointer" : "not-allowed",
+                    input.trim() && !loading && !streaming ? "#fff" : "var(--text-subtle)",
+                  cursor: input.trim() && !loading && !streaming ? "pointer" : "not-allowed",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   transition: "background 0.15s, color 0.15s",
                 }}
               >
-                {loading ? (
+                {loading || streaming ? (
                   <Loader
                     size={13}
                     style={{ animation: "spin 1s linear infinite" }}
