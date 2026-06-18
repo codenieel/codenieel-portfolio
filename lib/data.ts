@@ -42,8 +42,11 @@ export const skills: Skill[] = [
   { name: "Expo", category: "mobile" },
   { name: "Nativewind", category: "mobile" },
   // Backend
+  { name: "Node.js", category: "backend" },
+  { name: "Express", category: "backend" },
   { name: "CodeIgniter", category: "backend" },
   { name: "MySQL", category: "backend" },
+  { name: "Prisma", category: "backend" },
   { name: "Supabase", category: "backend" },
   { name: "Firebase", category: "backend" },
   { name: "REST APIs", category: "backend" },

@@ -118,7 +118,7 @@ IMPORTANT RULES:
 - Languages: TypeScript, JavaScript, PHP
 - Frontend: React, Next.js, Tailwind CSS, Bootstrap
 - Mobile: React Native, Expo, Nativewind
-- Backend & DB: CodeIgniter, MySQL, Supabase, Firebase, REST APIs, AWS S3
+- Backend & DB: Node.js, Express, CodeIgniter, MySQL, Prisma, Supabase, Firebase, REST APIs, AWS S3
 - Tools: Git, GitLab CI/CD, Docker, Figma
 
 ## Projects
