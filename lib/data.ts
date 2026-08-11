@@ -5,10 +5,10 @@
 export const siteConfig = {
   name: "Daniel Lusares Dalde",
   handle: "<codenieel />",
-  role: "Full-Stack Developer",
+  role: "Full Stack Developer",
   tagline:
-    "Full-Stack Developer specializing in PHP/React web platforms and cross-platform React Native apps — shipping real products used by real people.",
-  bio: "I'm a Full-Stack Developer based in the Philippines, contributing to real-world client projects as a freelancer. I work across the full stack — PHP/CodeIgniter backends, MySQL databases, React frontends, and React Native mobile apps.",
+    "Full Stack Developer specializing in PHP/React web platforms and cross-platform React Native apps — shipping real products used by real people.",
+  bio: "I'm a Full Stack Developer based in the Philippines, contributing to real-world client projects as a freelancer. I work across the full stack — PHP/CodeIgniter backends, MySQL databases, React frontends, and React Native mobile apps.",
   bio2: "I've shipped production platforms across e-commerce, real estate marketplaces, and mobile apps. I care about clean code, solid integrations, and delivering things that actually work in the hands of real users.",
   // Email is split to prevent bot scraping — joined at runtime in components
   emailUser: "daldedaniellus",
@@ -170,7 +170,7 @@ export type Experience = {
 
 export const experiences: Experience[] = [
   {
-    role: "Web Developer",
+    role: "Full Stack Developer",
     company: "Humimic Medical / Clear Ballistics",
     location: "Greenville, SC (Remote)",
     period: "Apr 2025 – Present",
@@ -237,7 +237,7 @@ export const experiences: Experience[] = [
 
 export const freelanceProjects: Experience[] = [
   {
-    role: "Full-Stack Developer",
+    role: "Full Stack Developer",
     company: "Tokkatok",
     location: "Remote · Philippines",
     period: "Jan 2026 – Apr 2026",
@@ -261,7 +261,7 @@ export const freelanceProjects: Experience[] = [
     ],
   },
   {
-    role: "Full-Stack Developer",
+    role: "Full Stack Developer",
     company: "Beauty Buffet Holistica (BBH)",
     location: "Remote · Philippines",
     period: "Dec 2025 – Apr 2026",
