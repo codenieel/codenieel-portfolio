@@ -1,5 +1,3 @@
-"use client";
-
 const TECHS = [
   { name: "PHP",           color: "#7c7fff" },
   { name: "React",         color: "#61dafb" },

@@ -1,12 +1,14 @@
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import TechMarquee from "@/components/TechMarquee";
 import About from "@/components/About";
-import Terminal from "@/components/Terminal";
 import Projects from "@/components/Projects";
-import Experience from "@/components/Experience";
-import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+
+const Terminal = dynamic(() => import("@/components/Terminal"));
+const Experience = dynamic(() => import("@/components/Experience"));
+const Contact = dynamic(() => import("@/components/Contact"));
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import ChatWidgetLoader from "@/components/ui/ChatWidgetLoader";

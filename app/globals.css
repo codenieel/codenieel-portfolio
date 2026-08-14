@@ -9,7 +9,7 @@
   --border: #e0e0ef;
   --border-strong: #c0c0d8;
   --text: #0a0a14;
-  --text-muted: #6060808;
+  --text-muted: #606080;
   --text-subtle: #9898b8;
   --accent: #5b5ef5;
   --accent-hover: #4547e0;
@@ -85,6 +85,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  font-family: monospace;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -269,7 +270,7 @@ body {
 }
 .glow-card:hover {
   border-color: var(--border-strong);
-  box-shadow: 0 0 40px -12px var(--accent-glow);
+  box-shadow: 0 0 24px -10px var(--accent-glow);
 }
 
 /* ── Noise overlay (dark only) ─────────────────────────────── */

@@ -14,7 +14,7 @@ export default function SectionHeading({ label, title, subtitle, align = "left" 
   return (
     <div className={cn("section-head", align === "center" && "text-center flex flex-col items-center")}>
       <ScrollReveal delay={0}>
-        <span className="label-tag">{label}</span>
+        <span className="label-tag">[ {label} ]</span>
       </ScrollReveal>
       <ScrollReveal delay={0.06}>
         <h2 className="section-title">{title}</h2>

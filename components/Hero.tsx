@@ -103,7 +103,7 @@ export default function Hero() {
       <div className="hero-orb" style={{
         width: "700px", height: "700px",
         background: "radial-gradient(circle, var(--accent) 0%, transparent 65%)",
-        opacity: 0.12,
+        opacity: 0.08,
         top: "-20%", left: "50%",
         transform: "translateX(-50%)",
       }} />
@@ -111,14 +111,14 @@ export default function Hero() {
       <div className="hero-orb" style={{
         width: "400px", height: "400px",
         background: "radial-gradient(circle, #a855f7 0%, transparent 70%)",
-        opacity: 0.07,
+        opacity: 0.05,
         bottom: "5%", left: "-5%",
       }} />
       {/* Tertiary orb — top right */}
       <div className="hero-orb" style={{
         width: "300px", height: "300px",
         background: "radial-gradient(circle, #38bdf8 0%, transparent 70%)",
-        opacity: 0.06,
+        opacity: 0.04,
         top: "10%", right: "5%",
       }} />
 
