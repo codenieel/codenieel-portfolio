@@ -86,17 +86,22 @@ export default function Hero() {
         overflow: "hidden",
       }}
     >
-      {/* Grid background */}
+      {/* Galaxy ambient background */}
       <div style={{
         position: "absolute", inset: 0, zIndex: 0, pointerEvents: "none",
-        backgroundImage: `
-          linear-gradient(var(--border) 1px, transparent 1px),
-          linear-gradient(90deg, var(--border) 1px, transparent 1px)
-        `,
-        backgroundSize: "60px 60px",
-        opacity: 0.4,
         maskImage: "radial-gradient(ellipse 90% 80% at 50% 50%, black 20%, transparent 100%)",
         WebkitMaskImage: "radial-gradient(ellipse 90% 80% at 50% 50%, black 20%, transparent 100%)",
+      }}>
+        <div className="star-field-far" />
+        <div className="star-field" />
+      </div>
+      <div className="nebula-breathe" style={{
+        position: "absolute", zIndex: 0, pointerEvents: "none",
+        width: "560px", height: "560px",
+        top: "-15%", left: "50%",
+        borderRadius: "50%",
+        background: "radial-gradient(circle, var(--accent) 0%, transparent 70%)",
+        filter: "blur(110px)",
       }} />
 
       <div style={{

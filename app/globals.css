@@ -250,6 +250,70 @@ body {
   z-index: 0;
 }
 
+/* ── Star field (Hero ambient) ────────────────────────────── */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.9; }
+}
+
+@keyframes star-drift-near {
+  from { background-position: 0 0; }
+  to   { background-position: 180px 90px; }
+}
+
+@keyframes star-drift-far {
+  from { background-position: 0 0; }
+  to   { background-position: -240px 160px; }
+}
+
+@keyframes nebula-breathe {
+  0%, 100% { transform: translate(-50%, 0) scale(1); opacity: 0.06; }
+  50%      { transform: translate(-47%, 2%) scale(1.12); opacity: 0.1; }
+}
+
+.star-field,
+.star-field-far {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-repeat: repeat;
+}
+
+.star-field {
+  background-size: 180px 180px;
+  background-image:
+    radial-gradient(1.6px 1.6px at 20px 30px, var(--text-subtle), transparent),
+    radial-gradient(1.2px 1.2px at 65px 90px, var(--text-subtle), transparent),
+    radial-gradient(1.8px 1.8px at 110px 40px, var(--text-subtle), transparent),
+    radial-gradient(1px 1px at 150px 120px, var(--text-subtle), transparent),
+    radial-gradient(1.4px 1.4px at 30px 140px, var(--text-subtle), transparent),
+    radial-gradient(1px 1px at 170px 20px, var(--text-subtle), transparent),
+    radial-gradient(1.6px 1.6px at 90px 160px, var(--text-subtle), transparent),
+    radial-gradient(1.2px 1.2px at 140px 70px, var(--text-subtle), transparent),
+    radial-gradient(1px 1px at 5px 100px, var(--text-subtle), transparent),
+    radial-gradient(1.4px 1.4px at 160px 150px, var(--text-subtle), transparent);
+  animation: twinkle 7s ease-in-out infinite, star-drift-near 90s linear infinite;
+  will-change: background-position;
+}
+
+.star-field-far {
+  background-size: 240px 240px;
+  opacity: 0.55;
+  background-image:
+    radial-gradient(1.3px 1.3px at 40px 60px, var(--border-strong), transparent),
+    radial-gradient(1px 1px at 120px 200px, var(--border-strong), transparent),
+    radial-gradient(1.5px 1.5px at 200px 110px, var(--border-strong), transparent),
+    radial-gradient(1px 1px at 210px 30px, var(--border-strong), transparent),
+    radial-gradient(1.2px 1.2px at 70px 220px, var(--border-strong), transparent);
+  animation: star-drift-far 150s linear infinite;
+  will-change: background-position;
+}
+
+.nebula-breathe {
+  animation: nebula-breathe 12s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
 /* ── Glow card ─────────────────────────────────────────────── */
 .glow-card {
   position: relative;
