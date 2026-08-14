@@ -1,8 +1,30 @@
+import { Cloud, Network } from "lucide-react";
+
+// slug: Simple Icons (cdn.simpleicons.org) identifier; null = no brand mark, use a generic icon instead
 const TECHS = [
-  "PHP", "React", "React Native", "TypeScript", "Next.js", "MySQL",
-  "Prisma", "Node.js", "Express", "CodeIgniter", "Expo", "Tailwind CSS",
-  "Firebase", "Supabase", "AWS S3", "Git", "Bootstrap", "jQuery",
-  "Nativewind", "GitLab CI/CD", "Docker", "REST APIs", "Figma",
+  { name: "PHP", slug: "php" },
+  { name: "React", slug: "react" },
+  { name: "React Native", slug: "react" },
+  { name: "TypeScript", slug: "typescript" },
+  { name: "Next.js", slug: "nextdotjs" },
+  { name: "MySQL", slug: "mysql" },
+  { name: "Prisma", slug: "prisma" },
+  { name: "Node.js", slug: "nodedotjs" },
+  { name: "Express", slug: "express" },
+  { name: "CodeIgniter", slug: "codeigniter" },
+  { name: "Expo", slug: "expo" },
+  { name: "Tailwind CSS", slug: "tailwindcss" },
+  { name: "Firebase", slug: "firebase" },
+  { name: "Supabase", slug: "supabase" },
+  { name: "AWS S3", slug: null },
+  { name: "Git", slug: "git" },
+  { name: "Bootstrap", slug: "bootstrap" },
+  { name: "jQuery", slug: "jquery" },
+  { name: "Nativewind", slug: "tailwindcss" },
+  { name: "GitLab CI/CD", slug: "gitlab" },
+  { name: "Docker", slug: "docker" },
+  { name: "REST APIs", slug: null },
+  { name: "Figma", slug: "figma" },
 ];
 
 const ITEMS = [...TECHS, ...TECHS];
@@ -32,8 +54,21 @@ export default function TechMarquee() {
       <div className="marquee-track">
         {ITEMS.map((tech, i) => (
           <span key={i} className="marquee-item">
-            <span className="marquee-dot" />
-            {tech}
+            {tech.slug ? (
+              // eslint-disable-next-line @next/next/no-img-element -- fixed-size decorative logo from a static icon CDN, not worth the next/image SVG-optimizer/CSP setup
+              <img
+                src={`https://cdn.simpleicons.org/${tech.slug}`}
+                alt=""
+                width={14}
+                height={14}
+                className="marquee-icon"
+              />
+            ) : tech.name === "AWS S3" ? (
+              <Cloud size={13} strokeWidth={2} />
+            ) : (
+              <Network size={13} strokeWidth={2} />
+            )}
+            {tech.name}
           </span>
         ))}
       </div>
