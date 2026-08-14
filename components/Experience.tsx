@@ -6,26 +6,6 @@ import SectionHeading from "./ui/SectionHeading";
 import ScrollReveal from "./ui/ScrollReveal";
 import { experiences, freelanceProjects } from "@/lib/data";
 
-const bulletIcons: { test: RegExp; icon: string }[] = [
-  { test: /clear ballistics|humimic/i,                         icon: "🛒" },
-  { test: /tokkatok — a|tokkatok.*marketplace|real estate/i,   icon: "🏠" },
-  { test: /tokkatok customer|tokkatok owner|react native|mobile app/i, icon: "📱" },
-  { test: /bbh|beauty buffet/i,                                icon: "🌐" },
-  { test: /payment|gateway|paypal|stripe|asiapay|xendit/i,     icon: "💳" },
-  { test: /api|integration|ignition|scada/i,                   icon: "🔌" },
-  { test: /ci\/cd|gitlab|git|deploy/i,                         icon: "🚀" },
-  { test: /wordpress|wp/i,                                     icon: "🔵" },
-  { test: /seo|performance|optim/i,                            icon: "⚡" },
-  { test: /design|brand|creative|graphic/i,                    icon: "🎨" },
-  { test: /marketing|social media|campaign/i,                  icon: "📣" },
-  { test: /training|documentation|staff/i,                     icon: "📚" },
-];
-
-function getBulletIcon(text: string) {
-  const match = bulletIcons.find((b) => b.test.test(text));
-  return match?.icon ?? "▸";
-}
-
 function ExperienceCard({ exp, i }: { exp: (typeof experiences)[0]; i: number }) {
   return (
     <ScrollReveal key={i} delay={i * 0.07}>
@@ -142,8 +122,8 @@ function ExperienceCard({ exp, i }: { exp: (typeof experiences)[0]; i: number })
                   </span>
                 )}
                 <div style={{ display: "flex", alignItems: "flex-start", gap: "9px" }}>
-                  <span style={{ fontSize: "13px", flexShrink: 0, lineHeight: 1.5 }}>
-                    {getBulletIcon(text)}
+                  <span style={{ fontSize: "13px", flexShrink: 0, lineHeight: 1.5, color: "var(--text-subtle)" }}>
+                    ▸
                   </span>
                   <p style={{ fontSize: "11.5px", lineHeight: 1.6, color: "var(--text-muted)", margin: 0 }}>
                     {text}
