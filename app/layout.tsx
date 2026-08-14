@@ -69,7 +69,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="font-sans antialiased" suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem={false}
           disableTransitionOnChange={true}
         >

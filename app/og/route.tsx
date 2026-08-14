@@ -24,38 +24,8 @@ export async function GET() {
             position: "absolute",
             inset: 0,
             backgroundImage:
-              "radial-gradient(circle, #7c7fff22 1px, transparent 1px)",
+              "radial-gradient(circle, #ffffff22 1px, transparent 1px)",
             backgroundSize: "30px 30px",
-          }}
-        />
-
-        {/* Left glow */}
-        <div
-          style={{
-            position: "absolute",
-            left: "-100px",
-            top: "50%",
-            width: "400px",
-            height: "400px",
-            borderRadius: "50%",
-            background:
-              "radial-gradient(circle, #6366f120 0%, transparent 70%)",
-            transform: "translateY(-50%)",
-          }}
-        />
-
-        {/* Right glow */}
-        <div
-          style={{
-            position: "absolute",
-            right: "-60px",
-            top: "50%",
-            width: "320px",
-            height: "320px",
-            borderRadius: "50%",
-            background:
-              "radial-gradient(circle, #6366f115 0%, transparent 70%)",
-            transform: "translateY(-50%)",
           }}
         />
 
@@ -79,13 +49,13 @@ export async function GET() {
           >
             <div
               style={{
-                background: "#6366f118",
-                border: "1px solid #6366f140",
+                background: "#ffffff18",
+                border: "1px solid #ffffff30",
                 borderRadius: "8px",
                 padding: "6px 16px",
                 fontSize: "22px",
                 fontWeight: 700,
-                color: "#9d9fff",
+                color: "#eeeeee",
                 letterSpacing: "1px",
                 display: "flex",
               }}
@@ -114,7 +84,7 @@ export async function GET() {
             style={{
               fontSize: "32px",
               fontWeight: 600,
-              color: "#9d9fff",
+              color: "#cccccc",
               letterSpacing: "0.5px",
               marginBottom: "20px",
               display: "flex",
@@ -143,7 +113,7 @@ export async function GET() {
               width: "360px",
               height: "2px",
               background:
-                "linear-gradient(90deg, #6366f150 0%, transparent 100%)",
+                "linear-gradient(90deg, #ffffff40 0%, transparent 100%)",
               marginBottom: "32px",
               display: "flex",
             }}
@@ -161,7 +131,7 @@ export async function GET() {
               style={{
                 fontSize: "20px",
                 fontWeight: 500,
-                color: "#9d9fff",
+                color: "#cccccc",
                 opacity: 0.7,
                 letterSpacing: "0.5px",
                 display: "flex",
@@ -174,12 +144,12 @@ export async function GET() {
                 display: "flex",
                 alignItems: "center",
                 gap: "6px",
-                background: "#6366f1",
+                background: "#eeeeee",
                 borderRadius: "8px",
                 padding: "8px 18px",
                 fontSize: "18px",
                 fontWeight: 700,
-                color: "#ffffff",
+                color: "#09090f",
                 letterSpacing: "0.3px",
               }}
             >
@@ -198,14 +168,14 @@ export async function GET() {
             width: "220px",
             height: "220px",
             borderRadius: "36px",
-            background: "#6366f110",
-            border: "1.5px solid #6366f130",
+            background: "#ffffff0f",
+            border: "1.5px solid #ffffff25",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             fontSize: "80px",
             fontWeight: 700,
-            color: "#9d9fff",
+            color: "#eeeeee",
           }}
         >
           {"</>"}

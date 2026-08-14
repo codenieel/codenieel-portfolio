@@ -5,14 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Github, Smartphone, X } from "lucide-react";
 import type { Project } from "@/lib/data";
 
-const bannerGradients = [
-  { bg: "linear-gradient(135deg, #1a1040 0%, #0d0d18 100%)", accent: "#7c7fff", label: "#4a4a9f" },
-  { bg: "linear-gradient(135deg, #0d1f30 0%, #090f18 100%)", accent: "#38bdf8", label: "#1a5a7a" },
-  { bg: "linear-gradient(135deg, #0d2018 0%, #090f0e 100%)", accent: "#34d399", label: "#0a4a2a" },
-  { bg: "linear-gradient(135deg, #1f0d2a 0%, #110a18 100%)", accent: "#c084fc", label: "#5a2a7a" },
-  { bg: "linear-gradient(135deg, #1a180d 0%, #120f09 100%)", accent: "#fb923c", label: "#6a4a10" },
-];
-
 const platformTag: (tech: string[]) => string = (tech) => {
   if (tech.some((t) => /react native|expo/i.test(t))) return "Mobile App";
   if (tech.some((t) => /wordpress/i.test(t))) return "WordPress";
@@ -20,7 +12,7 @@ const platformTag: (tech: string[]) => string = (tech) => {
   return "Web Platform";
 };
 
-function PhoneFrameModal({ url, fullScreenUrl, title, accent, onClose }: { url: string; fullScreenUrl: string; title: string; accent: string; onClose: () => void }) {
+function PhoneFrameModal({ url, fullScreenUrl, title, onClose }: { url: string; fullScreenUrl: string; title: string; onClose: () => void }) {
   return (
     <AnimatePresence>
       <motion.div
@@ -51,7 +43,7 @@ function PhoneFrameModal({ url, fullScreenUrl, title, accent, onClose }: { url: 
                 href={fullScreenUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "11px", fontWeight: 600, color: accent, textDecoration: "none", padding: "5px 10px", borderRadius: "6px", border: `1px solid ${accent}40`, background: `${accent}12` }}
+                style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "11px", fontWeight: 600, color: "#fff", textDecoration: "none", padding: "5px 10px", borderRadius: "6px", border: "1px solid rgba(255,255,255,0.25)", background: "rgba(255,255,255,0.08)" }}
               >
                 <ExternalLink size={11} /> Full Screen
               </a>
@@ -71,7 +63,7 @@ function PhoneFrameModal({ url, fullScreenUrl, title, accent, onClose }: { url: 
             borderRadius: "44px",
             background: "#111",
             border: "8px solid #2a2a2a",
-            boxShadow: `0 0 0 1px #3a3a3a, 0 32px 80px -12px rgba(0,0,0,0.8), 0 0 40px -8px ${accent}30`,
+            boxShadow: "0 0 0 1px #3a3a3a, 0 32px 80px -12px rgba(0,0,0,0.8)",
             overflow: "hidden",
             position: "relative",
             flexShrink: 0,
@@ -101,8 +93,7 @@ function PhoneFrameModal({ url, fullScreenUrl, title, accent, onClose }: { url: 
   );
 }
 
-export default function ProjectCard({ project, index = 0 }: { project: Project; index?: number }) {
-  const theme = bannerGradients[index % bannerGradients.length];
+export default function ProjectCard({ project }: { project: Project; index?: number }) {
   const tag = platformTag(project.tech);
   const [showDemo, setShowDemo] = useState(false);
 
@@ -118,36 +109,30 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
           display: "flex", flexDirection: "column",
           borderRadius: "10px", overflow: "hidden",
           background: "var(--bg-card)", border: "1px solid var(--border)",
-          transition: "border-color 0.15s, box-shadow 0.15s",
+          transition: "border-color 0.15s",
           height: "100%",
         }}
         onMouseEnter={(e) => {
-          (e.currentTarget as HTMLElement).style.borderColor = theme.accent + "60";
-          (e.currentTarget as HTMLElement).style.boxShadow = `0 4px 24px -6px ${theme.accent}22`;
+          (e.currentTarget as HTMLElement).style.borderColor = "var(--border-strong)";
         }}
         onMouseLeave={(e) => {
           (e.currentTarget as HTMLElement).style.borderColor = "var(--border)";
-          (e.currentTarget as HTMLElement).style.boxShadow = "none";
         }}
       >
         {/* Banner */}
         <div style={{
           height: "90px", flexShrink: 0,
-          background: theme.bg,
+          background: "var(--bg-section)",
+          borderBottom: "1px solid var(--border)",
           position: "relative", overflow: "hidden",
           display: "flex", alignItems: "flex-end",
           padding: "0 14px 10px",
         }}>
           <div style={{
             position: "absolute", inset: 0,
-            backgroundImage: `linear-gradient(${theme.accent}18 1px, transparent 1px), linear-gradient(90deg, ${theme.accent}18 1px, transparent 1px)`,
+            backgroundImage: "linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px)",
             backgroundSize: "24px 24px",
-          }} />
-          <div style={{
-            position: "absolute", top: "-30px", right: "-20px",
-            width: "100px", height: "100px", borderRadius: "50%",
-            background: `radial-gradient(circle, ${theme.accent}30 0%, transparent 70%)`,
-            pointerEvents: "none",
+            opacity: 0.6,
           }} />
           {project.featured && (
             <span style={{
@@ -155,9 +140,9 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
               display: "inline-flex", alignItems: "center", gap: "3px",
               fontSize: "9px", fontWeight: 700, letterSpacing: "0.08em",
               textTransform: "uppercase", padding: "2px 7px", borderRadius: "4px",
-              background: theme.accent + "25",
-              border: `1px solid ${theme.accent}50`,
-              color: theme.accent,
+              background: "var(--bg-card)",
+              border: "1px solid var(--border-strong)",
+              color: "var(--text)",
             }}>
               ★ Featured
             </span>
@@ -166,10 +151,10 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
             position: "relative", zIndex: 1,
             fontFamily: "monospace", fontSize: "9.5px", fontWeight: 700,
             letterSpacing: "0.1em", textTransform: "uppercase",
-            color: theme.accent, opacity: 0.9,
+            color: "var(--text-muted)",
             padding: "2px 7px", borderRadius: "4px",
-            background: theme.accent + "18",
-            border: `1px solid ${theme.accent}30`,
+            background: "var(--bg-card)",
+            border: "1px solid var(--border)",
           }}>
             {tag}
           </span>
@@ -209,13 +194,13 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
                 onClick={() => setShowDemo(true)}
                 style={{
                   display: "flex", alignItems: "center", gap: "4px",
-                  fontSize: "11px", fontWeight: 600, color: theme.accent,
-                  background: `${theme.accent}14`, border: `1px solid ${theme.accent}40`,
+                  fontSize: "11px", fontWeight: 600, color: "var(--text)",
+                  background: "var(--bg-section)", border: "1px solid var(--border)",
                   borderRadius: "5px", padding: "3px 9px", cursor: "pointer",
-                  transition: "opacity 0.12s", marginLeft: "auto",
+                  transition: "border-color 0.12s", marginLeft: "auto",
                 }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.opacity = "0.75")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = "1")}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "var(--border-strong)")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "var(--border)")}
               >
                 <Smartphone size={11} strokeWidth={2} /> Try App
               </button>
@@ -223,7 +208,7 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
             {project.live && project.live !== "#" && (
               <a
                 href={project.live} target="_blank" rel="noopener noreferrer"
-                style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", fontWeight: 600, color: theme.accent, textDecoration: "none", transition: "opacity 0.12s", marginLeft: project.demoUrl ? "0" : "auto" }}
+                style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", fontWeight: 600, color: "var(--text)", textDecoration: "none", transition: "opacity 0.12s", marginLeft: project.demoUrl ? "0" : "auto" }}
                 onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.opacity = "0.7")}
                 onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = "1")}
               >
@@ -242,7 +227,6 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
           url={project.demoUrl ?? ""}
           fullScreenUrl={project.demoUrl}
           title={project.title}
-          accent={theme.accent}
           onClose={() => setShowDemo(false)}
         />
       )}

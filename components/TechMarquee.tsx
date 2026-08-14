@@ -1,27 +1,8 @@
 const TECHS = [
-  { name: "PHP",           color: "#7c7fff" },
-  { name: "React",         color: "#61dafb" },
-  { name: "React Native",  color: "#61dafb" },
-  { name: "TypeScript",    color: "#3178c6" },
-  { name: "Next.js",       color: "#ffffff" },
-  { name: "MySQL",         color: "#4479a1" },
-  { name: "Prisma",        color: "#2d3748" },
-  { name: "Node.js",       color: "#5fa04e" },
-  { name: "Express",       color: "#ffffff" },
-  { name: "CodeIgniter",   color: "#ef4223" },
-  { name: "Expo",          color: "#ffffff" },
-  { name: "Tailwind CSS",  color: "#38bdf8" },
-  { name: "Firebase",      color: "#ffca28" },
-  { name: "Supabase",      color: "#3ecf8e" },
-  { name: "AWS S3",        color: "#ff9900" },
-  { name: "Git",           color: "#f54d27" },
-  { name: "Bootstrap",     color: "#7952b3" },
-  { name: "jQuery",        color: "#0769ad" },
-  { name: "Nativewind",    color: "#38bdf8" },
-  { name: "GitLab CI/CD",  color: "#fc6d26" },
-  { name: "Docker",        color: "#2496ed" },
-  { name: "REST APIs",     color: "#7c7fff" },
-  { name: "Figma",         color: "#f24e1e" },
+  "PHP", "React", "React Native", "TypeScript", "Next.js", "MySQL",
+  "Prisma", "Node.js", "Express", "CodeIgniter", "Expo", "Tailwind CSS",
+  "Firebase", "Supabase", "AWS S3", "Git", "Bootstrap", "jQuery",
+  "Nativewind", "GitLab CI/CD", "Docker", "REST APIs", "Figma",
 ];
 
 const ITEMS = [...TECHS, ...TECHS];
@@ -50,9 +31,9 @@ export default function TechMarquee() {
 
       <div className="marquee-track">
         {ITEMS.map((tech, i) => (
-          <span key={i} className="marquee-item" style={{ "--dot-color": tech.color } as React.CSSProperties}>
+          <span key={i} className="marquee-item">
             <span className="marquee-dot" />
-            {tech.name}
+            {tech}
           </span>
         ))}
       </div>

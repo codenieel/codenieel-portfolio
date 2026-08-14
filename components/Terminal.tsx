@@ -96,7 +96,7 @@ export default function Terminal() {
                   transition={{ duration: 0.15 }}
                   style={{ display: "flex", gap: "8px" }}
                 >
-                  <span style={{ color: line.output ? "#44445a" : "#7c7fff", flexShrink: 0 }}>
+                  <span style={{ color: line.output ? "#44445a" : "#e5e5e5", flexShrink: 0 }}>
                     {line.prompt}
                   </span>
                   <span style={{ color: line.output ? "#8080a0" : "#eeeef8" }}>
@@ -104,7 +104,7 @@ export default function Terminal() {
                       <motion.span
                         animate={{ opacity: [1, 0, 1] }}
                         transition={{ repeat: Infinity, duration: 0.8, ease: "linear" }}
-                        style={{ display: "inline-block", width: "8px", height: "14px", background: "#7c7fff", verticalAlign: "middle" }}
+                        style={{ display: "inline-block", width: "8px", height: "14px", background: "#e5e5e5", verticalAlign: "middle" }}
                       />
                     ) : i === visibleCount - 1 && !line.output ? (
                       <TypewriterLine text={line.cmd} />

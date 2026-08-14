@@ -2,40 +2,40 @@
 
 /* ── Theme tokens ─────────────────────────────────────────── */
 :root {
-  --bg: #f6f6fb;
-  --bg-section: #f0f0f8;
+  --bg: #ffffff;
+  --bg-section: #fafafa;
   --bg-card: #ffffff;
-  --bg-card-hover: #f5f5fc;
-  --border: #e0e0ef;
-  --border-strong: #c0c0d8;
-  --text: #0a0a14;
-  --text-muted: #606080;
-  --text-subtle: #9898b8;
-  --accent: #5b5ef5;
-  --accent-hover: #4547e0;
-  --accent-subtle: #eeeeff;
-  --accent-subtle-border: #c7c7ff;
-  --accent-glow: rgba(91, 94, 245, 0.25);
-  --nav-bg: rgba(246, 246, 251, 0.85);
+  --bg-card-hover: #f5f5f5;
+  --border: #e5e5e5;
+  --border-strong: #d0d0d0;
+  --text: #111111;
+  --text-muted: #555555;
+  --text-subtle: #999999;
+  --accent: #4c4fb0;
+  --accent-hover: #3a3d94;
+  --accent-subtle: #f1f1f6;
+  --accent-subtle-border: #dcdce8;
+  --accent-glow: rgba(76, 79, 176, 0.12);
+  --nav-bg: rgba(255, 255, 255, 0.85);
   --section-py: 72px;
 }
 
 .dark {
-  --bg: #07070f;
-  --bg-section: #0b0b16;
-  --bg-card: #0f0f1c;
-  --bg-card-hover: #16162a;
-  --border: #1c1c30;
-  --border-strong: #2c2c48;
-  --text: #f0f0ff;
-  --text-muted: #7878a0;
-  --text-subtle: #3c3c5a;
-  --accent: #7c7fff;
-  --accent-hover: #9d9fff;
-  --accent-subtle: #10102e;
-  --accent-subtle-border: #22224a;
-  --accent-glow: rgba(124, 127, 255, 0.2);
-  --nav-bg: rgba(7, 7, 15, 0.85);
+  --bg: #0a0a0a;
+  --bg-section: #0e0e0e;
+  --bg-card: #111111;
+  --bg-card-hover: #171717;
+  --border: #262626;
+  --border-strong: #3a3a3a;
+  --text: #f2f2f2;
+  --text-muted: #999999;
+  --text-subtle: #5a5a5a;
+  --accent: #8688ff;
+  --accent-hover: #a3a5ff;
+  --accent-subtle: #16161e;
+  --accent-subtle-border: #26263a;
+  --accent-glow: rgba(134, 136, 255, 0.1);
+  --nav-bg: rgba(10, 10, 10, 0.85);
 }
 
 /* ── Base ─────────────────────────────────────────────────── */
@@ -45,8 +45,8 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* Prevent white flash before theme class is applied — default matches dark theme */
-  background-color: #07070f;
+  /* Prevent flash before theme class is applied — default matches light theme */
+  background-color: #ffffff;
 }
 
 body {
@@ -86,16 +86,12 @@ body {
   align-items: center;
   gap: 8px;
   font-family: monospace;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
   color: var(--accent);
   margin-bottom: 8px;
-  padding: 4px 12px;
-  border-radius: 999px;
-  background: var(--accent-subtle);
-  border: 1px solid var(--accent-subtle-border);
 }
 
 /* ── Section heading ──────────────────────────────────────── */
@@ -136,10 +132,8 @@ body {
 }
 .dark .skill-chip { background: var(--bg-card-hover); }
 .skill-chip:hover {
-  border-color: var(--accent-subtle-border);
-  color: var(--accent);
-  background: var(--accent-subtle);
-  box-shadow: 0 0 12px -4px var(--accent-glow);
+  border-color: var(--border-strong);
+  color: var(--text);
 }
 
 /* ── Tech badge ───────────────────────────────────────────── */
@@ -151,9 +145,9 @@ body {
   font-size: 10.5px;
   font-weight: 600;
   letter-spacing: 0.01em;
-  background: var(--accent-subtle);
-  border: 1px solid var(--accent-subtle-border);
-  color: var(--accent);
+  background: var(--bg-section);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
   white-space: nowrap;
 }
 
@@ -189,7 +183,6 @@ body {
   border: 1px solid var(--border);
   display: block;
   flex-shrink: 0;
-  box-shadow: 0 0 0 4px var(--accent-subtle), 0 0 24px -8px var(--accent-glow);
 }
 
 @media (min-width: 600px) {
@@ -241,13 +234,11 @@ body {
 }
 
 .marquee-dot {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: var(--dot-color, var(--accent));
+  background: var(--text-subtle);
   flex-shrink: 0;
-  opacity: 0.85;
-  box-shadow: 0 0 6px var(--dot-color, var(--accent));
 }
 
 /* ── Hero orb ─────────────────────────────────────────────── */
@@ -270,7 +261,6 @@ body {
 }
 .glow-card:hover {
   border-color: var(--border-strong);
-  box-shadow: 0 0 24px -10px var(--accent-glow);
 }
 
 /* ── Noise overlay (dark only) ─────────────────────────────── */

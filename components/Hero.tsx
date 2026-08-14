@@ -99,29 +99,6 @@ export default function Hero() {
         WebkitMaskImage: "radial-gradient(ellipse 90% 80% at 50% 50%, black 20%, transparent 100%)",
       }} />
 
-      {/* Primary orb — center top */}
-      <div className="hero-orb" style={{
-        width: "700px", height: "700px",
-        background: "radial-gradient(circle, var(--accent) 0%, transparent 65%)",
-        opacity: 0.08,
-        top: "-20%", left: "50%",
-        transform: "translateX(-50%)",
-      }} />
-      {/* Secondary orb — bottom left */}
-      <div className="hero-orb" style={{
-        width: "400px", height: "400px",
-        background: "radial-gradient(circle, #a855f7 0%, transparent 70%)",
-        opacity: 0.05,
-        bottom: "5%", left: "-5%",
-      }} />
-      {/* Tertiary orb — top right */}
-      <div className="hero-orb" style={{
-        width: "300px", height: "300px",
-        background: "radial-gradient(circle, #38bdf8 0%, transparent 70%)",
-        opacity: 0.04,
-        top: "10%", right: "5%",
-      }} />
-
       <div style={{
         position: "relative", zIndex: 10,
         maxWidth: "680px",
@@ -184,10 +161,7 @@ export default function Hero() {
             letterSpacing: "-0.045em",
             lineHeight: 1.0,
             margin: "0 0 18px",
-            background: "linear-gradient(160deg, var(--text) 30%, var(--accent) 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
+            color: "var(--text)",
           }}
         >
           {siteConfig.name}
@@ -205,7 +179,6 @@ export default function Hero() {
             border: "1px solid var(--accent-subtle-border)",
             fontSize: "13px", fontWeight: 600, color: "var(--accent)",
             marginBottom: "20px",
-            boxShadow: "0 0 24px -8px var(--accent-glow)",
           }}
         >
           <AnimatedRole roles={ROLES} />
@@ -241,12 +214,11 @@ export default function Hero() {
             style={{
               display: "inline-flex", alignItems: "center", gap: "7px",
               padding: "11px 24px", borderRadius: "9px",
-              fontSize: "13px", fontWeight: 700, color: "#fff",
-              background: "var(--accent)",
+              fontSize: "13px", fontWeight: 700, color: "var(--bg)",
+              background: "var(--text)",
               textDecoration: "none",
-              boxShadow: "0 4px 20px -4px var(--accent-glow), 0 0 0 1px rgba(255,255,255,0.08) inset",
             }}
-            whileHover={{ scale: 1.04, boxShadow: "0 6px 28px -4px var(--accent-glow)" }}
+            whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
           >
             View Projects
@@ -315,7 +287,6 @@ export default function Hero() {
             border: "1px solid var(--border)",
             overflow: "hidden",
             width: "100%",
-            boxShadow: "0 4px 32px -8px rgba(0,0,0,0.2), 0 0 0 1px rgba(255,255,255,0.03) inset",
           }}
         >
           {STATS.map(({ icon: Icon, target, suffix, label }, i) => (
@@ -325,13 +296,7 @@ export default function Hero() {
               borderRight: i < STATS.length - 1 ? "1px solid var(--border)" : "none",
               position: "relative",
             }}>
-              <div style={{
-                position: "absolute", inset: 0,
-                background: "radial-gradient(ellipse 80% 60% at 50% 0%, var(--accent-subtle) 0%, transparent 100%)",
-                opacity: 0.5,
-                pointerEvents: "none",
-              }} />
-              <Icon size={14} style={{ color: "var(--accent)", marginBottom: "2px", position: "relative" }} strokeWidth={2} />
+              <Icon size={14} style={{ color: "var(--text-muted)", marginBottom: "2px", position: "relative" }} strokeWidth={2} />
               <span style={{
                 fontSize: "22px", fontWeight: 800,
                 letterSpacing: "-0.04em",

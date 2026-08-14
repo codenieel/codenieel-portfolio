@@ -51,8 +51,8 @@ export default function Projects() {
                   padding: "5px 12px", borderRadius: "6px", border: "none",
                   fontSize: "11px", fontWeight: 600, cursor: "pointer",
                   transition: "background 0.15s, color 0.15s",
-                  background: filter === f ? "var(--accent)" : "transparent",
-                  color: filter === f ? "#fff" : "var(--text-muted)",
+                  background: filter === f ? "var(--text)" : "transparent",
+                  color: filter === f ? "var(--bg)" : "var(--text-muted)",
                 }}
               >
                 {f}

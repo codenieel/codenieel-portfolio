@@ -8,9 +8,9 @@ import { siteConfig } from "@/lib/data";
 const email = `${siteConfig.emailUser}@${siteConfig.emailDomain}`;
 
 const socialLinks = [
-  { label: "GitLab",   href: siteConfig.gitlab,            icon: Github,   desc: siteConfig.gitlab.replace("https://", ""),  color: "#fc6d26" },
-  { label: "LinkedIn", href: siteConfig.linkedin,           icon: Linkedin, desc: "linkedin.com/in/codenieel",                color: "#0a66c2" },
-  { label: "Email",    href: `mailto:${email}`,             icon: Mail,     desc: email,                                      color: "#7c7fff" },
+  { label: "GitLab",   href: siteConfig.gitlab,            icon: Github,   desc: siteConfig.gitlab.replace("https://", "") },
+  { label: "LinkedIn", href: siteConfig.linkedin,           icon: Linkedin, desc: "linkedin.com/in/codenieel" },
+  { label: "Email",    href: `mailto:${email}`,             icon: Mail,     desc: email },
 ];
 
 export default function Contact() {
@@ -28,20 +28,6 @@ export default function Contact() {
             marginBottom: "16px",
             position: "relative",
           }}>
-            {/* Top gradient strip */}
-            <div style={{
-              height: "4px",
-              background: "linear-gradient(90deg, var(--accent) 0%, #a78bfa 50%, #38bdf8 100%)",
-            }} />
-
-            {/* Background orb */}
-            <div style={{
-              position: "absolute", top: "-60px", right: "-60px",
-              width: "220px", height: "220px", borderRadius: "50%",
-              background: "radial-gradient(circle, var(--accent) 0%, transparent 70%)",
-              opacity: 0.06, pointerEvents: "none",
-            }} />
-
             <div style={{ padding: "32px 32px 28px", position: "relative", zIndex: 1 }}>
               {/* Label */}
               <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "14px" }}>
@@ -65,11 +51,10 @@ export default function Contact() {
                   style={{
                     display: "inline-flex", alignItems: "center", gap: "6px",
                     padding: "10px 20px", borderRadius: "8px",
-                    fontSize: "13px", fontWeight: 600, color: "#fff",
-                    background: "var(--accent)", textDecoration: "none",
-                    boxShadow: "0 2px 12px -2px rgba(92,94,245,0.4)",
+                    fontSize: "13px", fontWeight: 600, color: "var(--bg)",
+                    background: "var(--text)", textDecoration: "none",
                   }}
-                  whileHover={{ scale: 1.03, boxShadow: "0 4px 20px -2px rgba(92,94,245,0.5)" }}
+                  whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                 >
                   <Mail size={13} /> Send a Message
@@ -83,9 +68,9 @@ export default function Contact() {
                       display: "inline-flex", alignItems: "center", gap: "6px",
                       padding: "10px 16px", borderRadius: "8px",
                       fontSize: "13px", fontWeight: 600,
-                      color: "var(--accent)",
-                      background: "var(--accent-subtle)",
-                      border: "1px solid var(--accent-subtle-border)",
+                      color: "var(--text)",
+                      background: "var(--bg-card)",
+                      border: "1px solid var(--border)",
                       textDecoration: "none",
                     }}
                     whileHover={{ scale: 1.03 }}
@@ -106,7 +91,7 @@ export default function Contact() {
 
         {/* Social link cards */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "10px" }}>
-          {socialLinks.map(({ label, href, icon: Icon, desc, color }, i) => (
+          {socialLinks.map(({ label, href, icon: Icon, desc }, i) => (
             <ScrollReveal key={label} delay={0.06 + i * 0.07}>
               <motion.a
                 href={href}
@@ -117,24 +102,22 @@ export default function Contact() {
                   padding: "12px 14px", borderRadius: "10px",
                   background: "var(--bg-card)", border: "1px solid var(--border)",
                   textDecoration: "none",
-                  transition: "border-color 0.15s, box-shadow 0.15s",
+                  transition: "border-color 0.15s",
                   position: "relative", overflow: "hidden",
                 }}
                 whileHover={{ y: -2 }}
                 transition={{ duration: 0.15 }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor = color + "60";
-                  (e.currentTarget as HTMLElement).style.boxShadow = `0 2px 12px -4px ${color}40`;
+                  (e.currentTarget as HTMLElement).style.borderColor = "var(--border-strong)";
                 }}
                 onMouseLeave={(e) => {
                   (e.currentTarget as HTMLElement).style.borderColor = "var(--border)";
-                  (e.currentTarget as HTMLElement).style.boxShadow = "none";
                 }}
               >
                 <div style={{
                   width: "30px", height: "30px", borderRadius: "8px",
                   display: "flex", alignItems: "center", justifyContent: "center",
-                  flexShrink: 0, background: color + "18", color: color,
+                  flexShrink: 0, background: "var(--bg-section)", color: "var(--text)",
                 }}>
                   <Icon size={14} strokeWidth={2} />
                 </div>

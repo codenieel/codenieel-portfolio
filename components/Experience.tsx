@@ -66,9 +66,9 @@ function ExperienceCard({ exp, i }: { exp: (typeof experiences)[0]; i: number })
             )}
             <span style={{
               fontSize: "10px", fontWeight: 600, padding: "3px 9px", borderRadius: "5px",
-              background: exp.current ? "var(--accent-subtle)" : "var(--bg-section)",
-              border: `1px solid ${exp.current ? "var(--accent-subtle-border)" : "var(--border)"}`,
-              color: exp.current ? "var(--accent)" : "var(--text-subtle)",
+              background: "var(--bg-section)",
+              border: "1px solid var(--border)",
+              color: exp.current ? "var(--text)" : "var(--text-subtle)",
               whiteSpace: "nowrap",
             }}>
               {exp.period}
@@ -110,10 +110,9 @@ function ExperienceCard({ exp, i }: { exp: (typeof experiences)[0]; i: number })
                     alignSelf: "flex-start",
                     fontSize: "9.5px", fontWeight: 700, letterSpacing: "0.08em",
                     textTransform: "uppercase", padding: "2px 7px", borderRadius: "4px",
-                    ...(platform === "web"
-                      ? { background: "rgba(56,189,248,0.1)", color: "#38bdf8", border: "1px solid rgba(56,189,248,0.2)" }
-                      : { background: "rgba(167,139,250,0.1)", color: "#a78bfa", border: "1px solid rgba(167,139,250,0.2)" }
-                    ),
+                    background: "var(--bg-card)",
+                    color: "var(--text-muted)",
+                    border: "1px solid var(--border)",
                   }}>
                     {platform === "web"
                       ? <><Globe size={9} strokeWidth={2.5} /> Web</>

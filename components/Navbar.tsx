@@ -72,11 +72,11 @@ export default function Navbar() {
         >
           <Image
             src="/logo.svg" alt="codenieel logo" width={28} height={28}
-            style={{ display: "block", borderRadius: "8px", boxShadow: "0 0 12px -2px var(--accent-glow)" }}
+            style={{ display: "block", borderRadius: "8px" }}
           />
           <span style={{
             fontFamily: "monospace", fontSize: "13px", fontWeight: 700,
-            color: "var(--accent)", letterSpacing: "-0.02em",
+            color: "var(--text)", letterSpacing: "-0.02em",
           }}>
             {"<codenieel />"}
           </span>
