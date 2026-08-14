@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Send, Bot, User, Loader } from "lucide-react";
+import { X, Send, MessageCircle, User, Loader } from "lucide-react";
 
 type Message = { role: "user" | "assistant"; content: string };
 
@@ -74,7 +74,7 @@ function MessageBubble({ msg }: { msg: Message }) {
         {isUser ? (
           <User size={12} color="#fff" />
         ) : (
-          <Bot size={12} style={{ color: "var(--accent)" }} />
+          <MessageCircle size={12} style={{ color: "var(--accent)" }} />
         )}
       </div>
       {/* Bubble */}
@@ -280,7 +280,7 @@ export default function ChatWidget() {
                   boxShadow: "0 0 12px -2px var(--accent-glow)",
                 }}
               >
-                <Bot size={15} style={{ color: "var(--accent)" }} />
+                <MessageCircle size={15} style={{ color: "var(--accent)" }} />
               </div>
               <div style={{ flex: 1 }}>
                 <div
@@ -395,7 +395,7 @@ export default function ChatWidget() {
                       border: "1px solid var(--border)",
                     }}
                   >
-                    <Bot size={12} style={{ color: "var(--accent)" }} />
+                    <MessageCircle size={12} style={{ color: "var(--accent)" }} />
                   </div>
                   <div
                     style={{
@@ -570,13 +570,13 @@ export default function ChatWidget() {
             </motion.span>
           ) : (
             <motion.span
-              key="bot"
+              key="chat"
               initial={{ rotate: 90, opacity: 0 }}
               animate={{ rotate: 0, opacity: 1 }}
               exit={{ rotate: -90, opacity: 0 }}
               transition={{ duration: 0.18 }}
             >
-              <Bot size={20} />
+              <MessageCircle size={20} />
             </motion.span>
           )}
         </AnimatePresence>
